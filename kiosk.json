@@ -1,0 +1,48 @@
+﻿{
+	"customersite" : "",
+	"HEADER" : 
+	{	
+		"src" : "header.html",
+		"script" : "{IORDERFAST_URI}js/page/header.js"
+	},
+	"FOOTER" :
+	{
+		"src" : "footer.html",
+		"script" : ""
+	},
+    "PAGE" : 
+	[
+		{
+			"id" : "offline",
+			"src" : "offline.html",
+			"script" : "",
+			"public" : "true",
+			"showheader" : "false",
+			"showfooter" : "false"
+		},
+		{
+			"id" : "splash",
+			"src" : "splash.html",
+			"script" : "js/page/splash.js",
+			"public" : "true",
+			"showheader" : "false",
+			"showfooter" : "false"
+		},
+		{
+			"id" : "ordering",
+			"src" : "ordering.html",
+			"script" : "{IORDERFAST_URI}js/page/ordering.js",
+			"public" : "true",
+			"showheader" : "false",
+			"showfooter" : "false"
+		},
+		{
+			"id" : "error",
+			"src" : "error.html",
+			"script" : "",
+			"public" : "true",
+			"showheader" : "false",
+			"showfooter" : "false"
+		}
+	]
+}

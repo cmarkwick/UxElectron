@@ -1,0 +1,21 @@
+<KIOSKTEXT>
+  <ORDER language='English' back='BACK' continuebutton='CONTINUE' cancel='CANCEL' currenttotal='TOTAL' plustax="PLUS TAX" moretime='NEED MORE TIME?' cancelorder='CANCEL YOUR ORDER?' yes='YES' no='NO' normal='NORMAL' less='LITE' more='HEAVY' orderreview='DONE' view="RECEIPT" hide="HIDE" adminmessage="Please Swipe Your Card" />
+  <ORDERREVIEW addanother='ADD ITEM' checkout='DONE' taketext="TAKE OUT" outtext="Out" dinetext="DINE IN" intext="In" total='TOTAL' tax='PLUS TAX' money='$' removeitem='REMOVE' scrollup='MORE' scrolldown='MORE'  removemessage='REMOVE THIS ITEM?' quantity="QUANTITY" modify="MODIFY" />
+  <PAYMENT total='TOTAL' tax='INCLUDES TAX' preptimemessage='Your order will be delivered in approximately {0} minutes. Press CONTINUE to submit your order now, or press the CANCEL button.' swipe='Please Swipe Your Credit Card' swipeerror='There was a problem reading your card, please swipe again' processingpayment='Your Payment Is Being Processed' processingerror='Sorry.  Payment could not be processed.' cashtext="CASH" credittext="CREDIT" debittext="DEBIT" paymenttype="Select a Payment Type" pinpadmessage='Please Complete Your Order On The PIN Pad' accepted="Accepted Cards" processingorder="Calculating Total" countertext="CASH" loyaltytext="GUEST EXPRESS"/>
+  <COMPLETE ordernumber='Your Order Number Is' localmessage='Please Take Your Receipt To The Cashier For Payment'  paymentmessage='Please Pick Up Your Order When Your Number Is Called' remotemessage='Please Go Inside And Pick Up Your Order When Your Number Is Called' pleasewait="One Moment Please..." />
+  <AGEVERIFICATION title='VERIFY YOUR AGE' agree='I AGREE' over21='I AM 21 OR OLDER' cancel='CANCEL' under21='I AM UNDER 21' scrollup='MORE' scrolldown='MORE' />
+  <DESIGNATEDDRIVER agree='I AGREE' coupontext='I have a Designated Driver coupon.' cancel='CANCEL' scrollup='MORE' scrolldown='MORE' />
+  <RECEIPTTEXT ordermessage="PLEASE PAY THE CASHIER" ordernumber="ORDER # " total="TOTAL - Plus Tax" moneysymbol="$" alcoholnotice="Notice to Alcohol Purchasers:" signature="Signature" subtotal="Sub-Total" salestax='Sales Tax' salestax2='Sales Tax 2' location="Location" kiosk="Kiosk" orderid="Order ID" date="Date" time="Time" cashmessage="" dinein='Dine In' takeout='Take Out' employeenotice="Notice to Airline Employee:" discount='Employee Discount' gratuity='Tip' />
+  <QUANTITY title="HOW MANY?" />
+  <CUSTOMEREXPERIENCESURVEY title='SURVEY' experience0='EXCELLENT' experience1='VERY GOOD' experience2='GOOD' experience3='FAIR' experience4='POOR' usage0='YES' usage1='NO' done='DONE' />
+  <PREVIOUSORDERS title="PREVIOUS ORDERS" welcome="Welcome back" instructions="To place an order based upon a previous order, click on an order now. Or, press 'NEW ORDER' to start a new order." neworder="NEW ORDER" />
+  <EMPLOYEEVERIFICATION title='ENTER YOUR EMPLOYEE ID OR SWIPE YOUR CARD' />
+  <GRATUITY message="A {0}% gratuity will be applied. Do you accept?" />
+  <ODS scrollleft="MORE" scrollright="MORE" ordernumber="ORDER #" print="PRINT" start="START" finish="FINISH" reprint="RE-PRINT" timeremaining="ELAPSED TIME" fulfillmenttime="FULFILLMENT TIME" edit="EDIT" elapsedtime="ELAPSED TIME" />
+  <FILE id='AlcoholDisclaimer' filename='Alcohol Disclaimer.txt' />
+  <FILE id='EmployeeDisclaimer' filename='Employee Disclaimer.txt' />
+  <OSM nowserving="Now Serving" waittime="Estimated Wait:" />
+  <PAYMENTWEB loyaltytext="Guest Express" cardbalance="{0} is being charged to your account. Click &apos;Yes&apos; to accept the charge." />
+  <!-- Added this one... TODO: Find out what the real one is -->
+  <PREVIOUSORDERS2 title="PREVIOUS ORDER LOOKUP" instructions="Look up previous orders for faster service?" />
+</KIOSKTEXT>

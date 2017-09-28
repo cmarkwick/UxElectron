@@ -1,0 +1,18 @@
+﻿<div id="controlbuttons" class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-lg-4 control-button-left">
+                <button id="ctrl-add-item" onclick="_iorderfast.ordering.addItem()" type="button" class="btn btn-default control-button control-button-additem">ADD ITEM</button>
+                <button id="ctrl-back" onclick="_iorderfast.ordering.goBack()" type="button" class="btn btn-default control-button control-button-back">BACK</button>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-lg-4 control-button-center">
+                <button id="ctrl-cancel" onclick="_iorderfast.ordering.cancelOrderPrompt()" data-toggle="modal" type="button" class="btn btn-default control-button control-button-cancel"></button>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-lg-4 control-button-right">
+                <button id="ctrl-orderreview" onclick="_iorderfast.ordering.gotoOrderReview()" type="button" class="btn btn-default control-button control-button-orderreview"></button>
+                <button id="ctrl-done" onclick="_iorderfast.checkoutService.start()" type="button" class="btn btn-default control-button control-button-done">DONE</button>
+                <button id="ctrl-continue" onclick="_iorderfast.ordering.gotoNextMenu()" type="button" class="btn btn-default control-button control-button-continue"></button>
+            </div>
+        </div>
+    </div>
+</div>

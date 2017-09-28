@@ -1,0 +1,133 @@
+/* UTILITY */
+
+/* Disable the ability to select text. */
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none;   /* Chrome/Safari/Opera */
+	-khtml-user-select: none;    /* Konqueror */
+	-moz-user-select: none;      /* Firefox */
+	-ms-user-select: none;       /* IE/Edge */
+	user-select: none;           /* non-prefixed version, currently not supported by any browser */
+}
+
+/* FONTS */
+#keyboardContainer {
+	font: 71%/1.5 verdana, sans-serif;
+}
+.write {
+	font: 5em/1.5 Verdana, Sans-Serif;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+/* LAYOUT */
+
+/* Container */
+#keyboardContainer {
+	/* Center it. */
+	/* margin: 100px auto; */
+	/*margin-top: 100px;
+	margin-bottom: 100px;*/
+	margin-left: auto;
+	margin-right: auto;
+	
+	/* Set the width. */
+	width: 800px;
+
+    /* Use this to debug layout issues. */
+	/*border: 3px solid red;*/
+
+    /* Added this so elements nested inside are contained within. */
+    float: left;
+
+    padding-left: 20px;
+}
+
+/* Items in the container */
+#keyboardContainer * {
+	/* Reset margins and padding inside the container. */
+	/*margin: 0;
+	padding: 0;*/
+}
+/* Output */
+.write {
+	margin: 0 0 15px 0px;
+    padding-left: 20px;
+	width: 90%;
+	height: 200px;
+	font-size: 18px;
+}
+/* Input */
+#keyboard {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+    /* Added this. Otherwise, the keys inside were displaying outside of the keyboard container. */
+    float: left;
+    /*border: 3px solid blue;*/
+}
+/* Set default style for each key. */
+#keyboard li {
+	float: left;
+	margin: 0 5px 5px 0;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+/* These keys start a new 'row' in the keyboard. */
+.capslock, .tab, .left-shift {
+	clear: left;
+}
+/* Tweak the width of these keys. */
+#keyboard .tab, #keyboard .delete {
+	width: 70px;
+}
+#keyboard .capslock {
+	width: 80px;
+}
+#keyboard .return {
+	width: 77px;
+}
+#keyboard .left-shift {
+	width: 95px;
+}
+#keyboard .right-shift {
+	width: 109px;
+}
+/* Tweak the margin on the last item in a row. */
+.lastitem {
+	margin-right: 0;
+}
+.uppercase {
+    /* When they hit the shift key, this is used to make certain letters uppercase */
+	text-transform: uppercase;
+}
+#keyboard .space {
+    /* Stretch the space key out to the width of the keyboard. */
+	clear: left;
+	width: 659px;
+}
+.on {
+    /* This is used to hide the special characters until the shift key is pressed. */
+	display: none;
+}
+.invisible {
+    visibility: hidden;
+
+}
+/* Use this to start new rows. */
+.firstitem {
+    clear: left;
+}
+.widekey {
+    width: 129px !important;
+}
+#popup-email .modal-dialog {
+    width: 800px;
+    zoom: 1.25;
+    -moz-transform: scale(1.25);
+}
+#keyboardContainer{
+}

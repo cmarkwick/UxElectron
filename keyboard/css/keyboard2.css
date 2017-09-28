@@ -1,0 +1,31 @@
+body {
+	/*background: #eee;*/
+     background: rgb(0, 182, 221);
+}
+/* Container */
+#keyboardContainer {
+	background: #eee;
+    /*background: rgb(0, 182, 221);*/
+}
+/* Output */
+#write {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	
+	/* The rounded corners make the output look better. */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+/* Button */
+#keyboard li {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	
+	/* The rounded corners make the keys look better. */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+/* Button hover */
+#keyboard li:hover {
+	border-color: #e5e5e5;
+}

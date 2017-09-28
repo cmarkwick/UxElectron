@@ -1,0 +1,271 @@
+<TEMPLATES>
+
+	<SCROLLBUTTONLAYOUTS>
+		<SCROLLBUTTONLAYOUT id="orderreview">
+			<SCROLLPREVIOUS buttonid="scrollprevious" x="540" y="108" height="" width="" />
+			<SCROLLNEXT buttonid="scrollnext" x="540" y="589" height="" width="" />
+		</SCROLLBUTTONLAYOUT>
+	</SCROLLBUTTONLAYOUTS>
+
+	<BUTTONREGIONS >
+		<BUTTONREGION buttoncount="3" columns="3" rows="1" x="230" y="217" width="820" height="286" buttonscale="1" rowalign="center" colalign="center"/>
+		<BUTTONREGION buttoncount="4" columns="4" rows="1" x="102" y="217" width="1075" height="286" buttonscale="1" rowalign="center" colalign="center"/>
+		<BUTTONREGION buttoncount="6" columns="3" htmlcolumns="3" rows="2" x="230" y="80" width="820" height="580" buttonscale="1" rowalign="center" colalign="center"/>
+		<BUTTONREGION buttoncount="8" columns="4" rows="2" x="102" y="80" width="1075" height="580" buttonscale="1" rowalign="center" colalign="center"/>
+		<BUTTONREGION buttoncount="10" columns="5" rows="2" x="5" y="80" width="1270" height="580" buttonscale="1" rowalign="center" colalign="center"/>
+	</BUTTONREGIONS>
+
+	<BUTTONREGIONS id="DA">
+		<BUTTONREGION buttoncount="2" columns="1" rows="2" x="820" y="255" width="250" height="209" buttonscale="1" rowalign="center" colalign="center"/>
+	</BUTTONREGIONS>
+
+	<TEMPLATE name="Select 1 of DA" maxbuttons="2" defaultbuttontype="SELECTONE" buttonregionsid="DA" continuemenu="false" displayreceipt="true" verticalcentertext="true" scrollable="true" displayad="false" additembutton="false" classname="Select1ofNIntegrated" donebutton="false" buttonrendermode="Dynamic" displaydragalong="true" descriptiontype="i-button">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" buttonid="selectonedragalong" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" buttonid="selectonedragalong" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectonedragalong" />
+		<DRAGALONG x="100" y="95" height="569" width="500" id="dragalong" />
+
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of N" maxbuttons="8" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" verticalcentertext="true" displayad="true" scrollable="true" backbutton="true" donebutton="false" classname="Select1ofNIntegrated" additembutton="false" buttonrendermode="Dynamic" showfilteraction="true" showdicoaction="true" showmenubuttonvisibility="true" setdragalong="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" buttonid="menubutton" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="blank" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of Mod" maxbuttons="8" defaultbuttontype="SELECTONEMODIFIER" continuemenu="false" displayreceipt="true" verticalcentertext="true" scrollable="true" displayad="false" additembutton="false" classname="Select1ofNIntegrated" donebutton="false" buttonrendermode="Dynamic" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" buttonid="selectone" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" buttonid="menubutton" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="blank" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of Mod Upsell" maxbuttons="8" defaultbuttontype="SELECTONEMODIFIER" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="true" additembutton="false" donebutton="false" buttonrendermode="Dynamic" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" buttonid="selectone" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" buttonid="menubutton" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="blank" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of Upsell" maxbuttons="8" defaultbuttontype="SELECTONE" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="false" additembutton="false" donebutton="false" buttonrendermode="Dynamic">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" buttonid="selectone" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="blank" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of N" maxbuttons="8" defaultbuttontype="SELECTMANYMODIFIER" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="false" scrollable="true" classname="SelectManyofNIntegrated" additembutton="false" donebutton="false" buttonrendermode="Dynamic">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" buttonid="selectmanyof" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="blank"/>
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of NE Check" maxbuttons="8" defaultbuttontype="SELECTNE" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="false" scrollable="true" classname="SelectManyofNIntegrated" incquantity="true" additembutton="false" donebutton="false" pricedby="menu" buttonrendermode="Dynamic">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTNE" buttonid="selectmanyof" />
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTOTHER" buttonid="selectmanyof" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="blank"/>
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many Items - Qty" maxbuttons="8" defaultbuttontype="SELECTONEQUANTITY" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="true" scrollable="true" classname="SelectManyofNIntegrated" incquantity='false' buttonrendermode="Dynamic" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEQUANTITY" buttonid="selectonespecial" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectone"/>
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of Flavor" maxbuttons="8" defaultbuttontype="SELECTONEQUANTITY" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="false" scrollable="true" classname="SelectManyofN" incquantity="true" additembutton="false" donebutton="false" popup="false" pricedby="menu" buttonrendermode="Dynamic" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEQUANTITY" buttonid="selectonespecial" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectone"/>
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of N Item" maxbuttons="8" defaultbuttontype="SELECTMANYITEM" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="false" scrollable="true" classname="" additembutton="false" donebutton="false" descriptiontype="description-text" buttonrendermode="Dynamic">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYITEM" buttonid="selectmanyof" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectone" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of LNM" maxbuttons="8" defaultbuttontype="LESSMORE" continuemenu="true" displayreceipt="true" verticalcentertext="true" displayad="false" scrollable="true" classname="SelectManyofNIntegrated" additembutton="false" donebutton="false" buttonrendermode="Dynamic" >
+		<SUPPORTEDBUTTONTYPE buttontype="LESSMORE" buttonid="lessmore" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectone" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Order Review" maxbuttons="4" defaultbuttontype="CHECKOUT" imagesize="" continuemenu="false" displayreceipt="true" displayad="false" backbutton="false" additembutton="true" donebutton="true" classname="OrderReview" scrollbuttonlayout="orderreview" buttonrendermode="Dynamic">
+		<SUPPORTEDBUTTONTYPE buttontype="CHECKOUT" />
+		<BUTTONREGION columns="1" rows="4" x="165" y="189" width="950" height="367" buttonscale="1" />
+		<AD x="20" y="100" height="605" width="225" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 2 Text" maxbuttons="2" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 2 Mod Text" maxbuttons="2" defaultbuttontype="SELECTONEMODIFIER" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 2" maxbuttons="2" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true" setdragalong="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 3" maxbuttons="3" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true" setdragalong="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 3 Upsell" maxbuttons="3" defaultbuttontype="SELECTONE" continuemenu="true" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 4" maxbuttons="4" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true" setdragalong="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 4 Upsell" maxbuttons="4" defaultbuttontype="SELECTONE" continuemenu="true" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true" setdragalong="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 5" maxbuttons="4" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 6" maxbuttons="6" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 7" maxbuttons="7" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 7 Upsell" maxbuttons="7" defaultbuttontype="SELECTONE" continuemenu="true" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 8" maxbuttons="8" defaultbuttontype="SELECTONE" continuemenu="false" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" donebutton="false" classname="Select1ofNIntegrated" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true" setdragalong="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 3 Mod" maxbuttons="3" defaultbuttontype="SELECTONEMODIFIER" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 4 Mod" maxbuttons="4" defaultbuttontype="SELECTONEMODIFIER" continuemenu="false" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 4 Mod Upsell" maxbuttons="4" defaultbuttontype="SELECTONEMODIFIER" continuemenu="true" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 5 Mod" maxbuttons="5" defaultbuttontype="SELECTONEMODIFIER" continuemenu="true" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select 1 of 5 Mod Sauce" maxbuttons="5" defaultbuttontype="SELECTONEMODIFIER" continuemenu="true" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="" descriptiontype="i-button" additembutton="false" popup="false" showfilteraction="true" showdicoaction="true">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 2" maxbuttons="2" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 3" maxbuttons="3" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 3 Sauce" maxbuttons="3" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 4" maxbuttons="4" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 5" maxbuttons="5" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 6" maxbuttons="6" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 6 Sauce" maxbuttons="6" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 7" maxbuttons="7" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 8" maxbuttons="8" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 3 Items Qty" maxbuttons="3" defaultbuttontype="SELECTONEQUANTITY" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="i-button" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEQUANTITY" buttonid="selectonespecial" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectone"/>
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 5 Items Qty" maxbuttons="5" defaultbuttontype="SELECTONEQUANTITY" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="i-button" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEQUANTITY" buttonid="selectonespecial" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectone"/>
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 6 Items Qty" maxbuttons="6" htmlcolumns="3" defaultbuttontype="SELECTONEQUANTITY" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="false" additembutton="false" donebutton="false" popup="false" descriptiontype="i-button" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEQUANTITY" buttonid="selectonespecial" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" buttonid="selectone"/>
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 3 NE Check" maxbuttons="3" defaultbuttontype="SELECTNE" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="true" additembutton="false" pricedby="menu" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTNE" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+
+	<TEMPLATE name="Select Many of 8 NE Check" maxbuttons="8" defaultbuttontype="SELECTNE" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" backbutton="true" classname="SelectManyofNIntegrated" incquantity="true" additembutton="false" pricedby="menu" donebutton="false" popup="false" descriptiontype="description-text" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTNE" />
+		<SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+	</TEMPLATE>
+	
+	<TEMPLATE name="Weigh Item" maxbuttons="1" defaultbuttontype="SELECTONEMODIFIER" additembutton="false" continuemenu="true" displayreceipt="true" 
+		displayad="false" scrollable="false" backbutton="true" continuebutton="false" donebutton="false" classname="WeighItem" popup="false">
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+	</TEMPLATE>
+	<TEMPLATE name="Scan Items" maxbuttons="0" defaultbuttontype="SELECTONEMODIFIER" additembutton="false" continuemenu="true" displayreceipt="true" displayad="false" scrollable="false" backbutton="true" donebutton="false" classname="ScanItems" popup="false" >
+		<SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" />
+	</TEMPLATE>
+
+</TEMPLATES>

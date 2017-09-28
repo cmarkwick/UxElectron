@@ -1,0 +1,1702 @@
+﻿/* NEX BonAppetit- NEXTEP Mobile css */
+@font-face {
+  font-family: 'lobster';
+  src:  url('../../../../../fonts/lobster 1.4.otf') format('opentype');
+  font-weight: bold;
+}
+
+body {
+    background-image: url('../images/body-bg.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #000;
+    font-family: Calibri, sans-serif;
+    color: #fff;
+}
+
+#canvas {
+    background-image: url('../images/splash-bg.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #000;
+    font-family: Calibri, sans-serif;
+    color: #fff;
+}
+
+a,
+a:focus,
+a:hover,
+a:active,
+a:visited {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    outline: 0;
+}
+
+#targets h1,
+.bg-info {
+    margin-top: 0;
+    font-size: 26px;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-default {
+    background-color: transparent;
+    border-radius: 0 0 0 0;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: transparent;
+    border-radius: 0 0 0 0;
+    border: 2px solid #fff;
+    box-shadow: none;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: transparent;
+    border: 2px solid #f6a800;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.btn-default:active,
+.btn-default.active {
+    background-color: transparent;
+    border: 2px solid #f6a800;
+    box-shadow: none;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: transparent;
+    border: 2px solid #f6a800;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.btn-primary:active,
+.btn-primary.active {
+    background-color: transparent;
+    border: 2px solid #f6a800;
+    box-shadow: none;
+}
+
+
+.btn-primary.disabled,
+.btn-primary[disabled],
+fieldset[disabled] .btn-primary,
+.btn-primary.disabled:hover,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus,
+.btn-primary[disabled]:focus,
+fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled:active,
+.btn-primary[disabled]:active,
+fieldset[disabled] .btn-primary:active,
+.btn-primary.disabled.active,
+.btn-primary[disabled].active,
+fieldset[disabled] .btn-primary.active {
+    background-color: transparent;
+    border: 2px solid #f6a800;
+}
+
+
+.input-md {
+    font-size: 16px;
+}
+
+.container .jumbotron {
+    border-radius: 0;
+}
+
+.jumbotron {
+    margin-top: 100px;
+	height: 568px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 0;
+    border-top: 2px solid #f6a800;
+    border-bottom: 2px solid #f6a800;
+	text-align:center;
+}
+
+#clip-controlbuttons .navbar-fixed-bottom {
+    background-color: rgba(0, 0, 0, 0.45);
+    border-top: none;
+    font-weight: bold;
+}
+
+#footer .text-muted {
+    font-size: 12px;
+    color: #fff;
+}
+
+    #navMobile {
+        margin-left: 70px;
+    }
+
+.navbar-fixed-top {
+    background-color: #000;
+    border-bottom: none;
+}
+
+.navbar-header {
+    position: relative;
+    margin-top: -35px;
+    padding-left: 150px;
+    width: 100%;
+    font-size: 14pt;
+}
+
+.navbar-fixed-bottom {
+    background-color: rgba(0, 0, 0, 0.45);
+    border: 0 solid;
+}
+
+.navbar-text {
+    margin-top: 8px;
+}
+
+.navbar-default .navbar-text {
+    color: #fff;
+}
+
+#navChangeAccount,
+#navChangePassword,
+#navLogout {
+    color: #fff;
+}
+
+    #navChangeAccount:hover,
+    #navChangeAccount:focus {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    #navChangePassword:hover,
+    #navChangePassword:focus {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    #navLogout:hover,
+    #navLogout:focus {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+.menu-header-bg,
+.page-header-bg {
+    margin-top: 92px;
+    background-image: url("../images/header-bg.png");
+    border: none;
+    height: 50px;
+    width: 100%;
+}
+
+.page-header-bg {
+    margin-top: 0;
+}
+
+.iorderfast-content {
+    margin-top: 0;
+}
+
+.alert-danger {
+    margin-top: 130px;
+}
+
+
+.brand-logo {
+    height: 75px;
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.page-header {
+    color: #fff;
+    font-size: 22pt;
+    text-align: left;
+    margin-top: -50px;
+    height: 50px;
+    border-color: transparent;
+    font-family: "lobster",serif;
+}
+
+.splash {
+    margin-top: 50px;
+}
+
+.offline-closebg {
+	top:auto;
+	bottom:100%;
+    text-align:center;
+	font-size: 24px;
+	padding-top:10px;
+    background-color:rgba(0,0,255,.5);
+    border-radius: 10px 10px 0px 0px;
+	border-color: #fff;
+	border-left: 2px solid;
+	border-right:2px solid;
+	border-top:2px solid;
+	position: fixed;
+    bottom: 0;
+    width: 50%;
+}
+
+.order-now {
+    margin-top: 5px;
+    
+}
+
+.overlaycontainer {
+    margin-left: 170px;
+}
+
+.order-now-message {
+    color: rgba(255, 255, 255, 0.00);
+}
+
+/* receipt */
+#clip-receipt {
+    float: right;
+    margin-top: -65px;
+    width: 100%;
+    margin-right: 5px;
+}
+
+.order-receipt {
+    background-color: #fff;
+    color: #000;
+    text-align: right;
+    margin-top: -10px;
+    margin-left: auto;
+    margin-bottom: 8px;
+    padding-top: 0;
+    padding-right: 10px;
+    max-width: 100px;
+    min-height: 0;
+    visibility: hidden;
+}
+
+#txtTotalLabel {
+    font-size: 10pt;
+    text-transform: uppercase;
+}
+
+#txtTotal {
+    font-size: 14pt;
+}
+
+#pulldownReceipt {
+	width: 300px;
+}
+
+.receipt-item {
+    font-size: 11pt;
+    padding-top: 9px;
+	color: #000;
+	width: 300px;
+}
+
+.receipt-item-text {
+    display: inline-block !important;
+    font-weight: bold;
+    width: 175px;
+}
+
+.receipt-item-amount {
+    text-align: right;
+    width: 75px;
+    display: inline-block !important;
+}
+
+.receipt-mod {
+    font-size: 11pt;
+	color: #000;
+	width: 300px;
+}
+
+.receipt-mod-text {
+    display: inline-block !important;
+    width: 175px;
+}
+
+.receipt-mod-amount {
+    display: inline-block !important;
+    width: 75px;
+    text-align: right;
+}
+/* buttons */
+.row {
+    margin-bottom: 15px;
+}
+
+#controlbuttons .row,
+#futureorder-controlbuttons .row,
+#previousorders-controlbuttons .row,
+#payment-controlbuttons .row,
+#complete-controlbuttons .row {
+    margin-top: 3px;
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
+.row-centered {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    text-align: left;
+    margin-right: 0;
+}
+
+.Select-1-of-DA-buttons  {
+    padding-top: 100px;
+}
+
+.Select-1-of-DA-buttons #row1 {
+    padding-top: 0;
+    margin-top: -200px;
+}
+
+
+.buttons {
+    min-height: 300px;
+    margin-bottom: 100px;
+}
+
+.thumbnail {
+    position: relative;
+    height: 250px;
+    min-height: 152px;
+    max-width: 280px;
+    padding: 0 0 30px 0;
+    margin: 15px 0 0 0;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0 solid #FFF;
+    background-color: transparent;
+}
+
+.image-cropped {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 250px;
+    height: 230px;
+    margin: 0 0 0 0;
+    border-radius: 10px 10px 10px 10px;
+    border-bottom: 0;
+    position: absolute;
+    top: 0;
+}
+
+.caption {
+    display: table;
+    top: 230px;
+    position: absolute;
+    width: 100%;
+    height: 45px;
+    border-top: 0 solid;
+    background-color: rgba(255, 255, 255, 0.00);
+}
+
+.Select-Many-of-NE-Check-DA-buttons .caption,
+.Select-1-of-Mod-DA-buttons .caption,
+.Select-Many-of-N-DA-buttons .caption {
+    top: 200px;
+}
+
+.button-text {
+    color: #fff;
+    background-color: transparent;
+    text-align: center;
+    font-size: 22pt;
+    font-weight: normal;
+    vertical-align: middle;
+    font-family: "lobster",serif;
+}
+
+.description-text {
+    text-align: center;
+    font-size: 8pt;
+}
+
+.thumbnail .caption {
+    padding: 0 0 0 0;
+    color: #fff;
+}
+
+.button-price {
+    color: #fff;
+    background-color: rgba(255,255,255,.0);
+    border: 0 solid;
+    margin: -15px 0 3px 3px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 10px;
+    position: absolute;
+    right: 0;
+    font-size: 10pt;
+}
+
+.Select-1-of-2-Text-buttons .thumbnail,
+.Select-1-of-2-Mod-Text-buttons .thumbnail,
+.Select-1-of-DA-buttons .thumbnail{
+    background-color: transparent;
+    height: 75px;
+    min-height: 75px;
+    max-width: 200px;
+    border-radius: 0;
+    border: solid 2px #fff;
+}
+
+.Select-1-of-2-Text-buttons .button-text,
+.Select-1-of-2-Mod-Text-buttons .button-text,
+.Select-1-of-DA-buttons .button-text {
+    color: #fff;
+    vertical-align: text-top;
+    font-size: 20px;
+line-height: 22px;
+
+}
+
+.Select-1-of-2-Text-buttons .button-price,
+.Select-1-of-2-Mod-Text-buttons .button-price,
+.Select-1-of-DA-buttons .button-price {
+    color: #fff;
+}
+
+.Select-1-of-2-Text-buttons .caption,
+.Select-1-of-2-Mod-Text-buttons .caption,
+.Select-1-of-DA-buttons .caption {
+    top: 20px;
+}
+
+.Select-1-of-DA-buttons .ibutton,
+.Select-1-of-DA-buttons .ibutton:active,
+.Select-1-of-DA-buttons .ibutton:hover,
+.Select-1-of-DA-buttons .ibutton:focus {
+    background-color: transparent;
+    background-image: url("../../Images/i-button.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: contain;
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+    height: 30px;
+    width: 30px;
+    margin-top: -70px;
+    margin-left: 40px;
+    position: absolute;
+    border: none;
+}
+
+
+.Select-1-of-2-Text-buttons .image-cropped,
+.Select-1-of-2-Mod-Text-buttons .image-cropped,
+.Select-1-of-DA-buttons .image-cropped {
+    display: none;
+}
+
+.selectmanyof #check {
+    line-height: 110px;
+}
+
+.button-many-unselected {
+    visibility: hidden;
+}
+
+.button-many-selected {
+    float: none;
+    background-image: url("../Themes/CrispKitchen/Media/Images/check.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    left: 90px;
+    height: 75px;
+    width: 75px;
+    margin-top: -5px;
+}
+
+/* i buttons */
+
+.ibutton,
+.ibutton:active,
+.ibutton:hover,
+.ibutton:focus {
+    background-color: transparent;
+    background-image: url("../../Images/i-button.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: contain;
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+    height: 30px;
+    width: 30px;
+    margin-top: -10px;
+    margin-left: -10px;
+    position: absolute;
+    border: none;
+}
+
+.ibutton-showing {
+    background-image: url("../../Images/x-button.png");
+}
+
+.ibutton-nutrition-info {
+    width: 100%;
+    text-align: center;
+}
+
+.ibutton-nutrition-button {
+    background-color:transparent;
+    border: 2px solid #000;
+    border-radius: 0;
+    color: #000;
+    height: 2.5em;
+    font-size: 12px;
+}
+
+.ibutton-nutrition-button:hover, .ibutton-nutrition-button:focus {
+    color: #000;
+}
+
+.item-description-text {
+    color: #000;
+}
+
+#popup-nutrition .modal-dialog {
+    width: 298px;
+    height:405px;
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+}
+#popup-nutrition .modal-content {
+    background-color: transparent;
+    box-shadow : none;
+    border: 0 solid;
+}
+#popup-nutrition .modal-header {
+    border: 0 solid;
+}
+#popup-nutrition .close {
+    background-image: url("../../Images/black-x-button.png");
+    background-repeat:no-repeat;
+    content:"";
+    height: 28px;
+    width: 28px;
+    right: 0;
+    z-index: 999;
+    position:absolute;
+    color:transparent;
+    opacity:1.0;
+    margin-right: 5px;
+    margin-top:30px;
+}
+
+.nutrition {
+    background-image: url("../../Images/Nutrition-Bg.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    -o-background-size: contain;
+    -moz-background-size : contain;
+    -webkit-background-size : contain;
+    width:298px;
+    height:405px;    
+    padding-right: 45px;
+    padding-top: 78px;
+    font-family: 'Helvetica LT', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: #000;
+}
+
+.nutrition-info {
+    margin-top:4px;
+    height:18px;    
+}
+
+.nutrition-divider {
+    height: 5px;
+}
+
+.nutrition-grams {
+    margin-top: 5px;
+    height: 20px;
+}
+
+.nutrition-carbs {
+    margin-top: 7px;
+}
+
+.nutrition-amount {
+    font-size: 12pt;    
+    text-align: right;
+    padding-right: 3px;
+    width:100%;
+    vertical-align:middle;
+    line-height:1em;
+}
+
+.nutrition-amount #totalCarbs {
+    height: 25px;
+}
+
+
+.popover {
+    border: none,
+}
+
+    .popover.top .arrow {
+        border-top-color: none,
+    }
+
+
+
+.sub-buttons {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sub-button-price {
+    color: #fff;
+    font-size: 9pt;
+    text-align: center;
+}
+
+.sub-button {
+    font-size: 8pt;
+    display: inline-block;
+    margin-left: 2px;
+    margin-right: 2px;
+    background-color: #f6a800;
+    border-radius: 2px 2px 2px 2px;
+    width: 45px;
+    height: 30px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.sub-button-check {
+    background-image: url("../../Images/check.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    height: 18px;
+    width: 45px;
+    font-size: 12pt;
+    margin-top: 8px;
+    top: 23px;
+    position: absolute;
+}
+
+.sub-button-text {
+    color: #fff;
+    font-size: 6pt;
+    text-align: center;
+    width: 100%;
+}
+
+.Select-Many-of-8-NE-Check-buttons .button-down-state #check {
+    visibility: visible;
+}
+
+.Select-Many-of-8-NE-Check-buttons .button-down-state #check,
+.button-many-selected {
+    float: none;
+    background-image: url("../../Images/check.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    left: 90px;
+    height: 75px;
+    width: 75px;
+    margin-top: -5px;
+}
+
+.Select-Many-of-NE-Check-DA-buttons .button-down-state #check {
+    visibility: visible;
+}
+
+.Select-Many-of-NE-Check-DA-buttons .button-down-state #check,
+.button-many-selected {
+    float: none;
+    background-image: url("../../Images/check.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    height: 75px;
+    width: 75px;
+    margin-top: -5px;
+}
+
+.Select-Many-of-N-DA-buttons .button-down-state #check {
+    visibility: visible;
+}
+
+.Select-Many-of-N-DA-buttons .button-down-state #check,
+.button-many-selected {
+    float: none;
+    background-image: url("../../Images/check.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    height: 75px;
+    width: 75px;
+    margin-top: -5px;
+}
+
+.Select-Many-of-NE-Check-Small-buttons .button-down-state #check {
+    visibility: visible;
+}
+
+.Select-Many-of-NE-Check-Small-buttons .button-down-state #check,
+.button-many-selected {
+    float: none;
+    background-image: url("../../Images/check.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    position: absolute;
+    top: 60px;
+    left: 90px;
+    height: 75px;
+    width: 75px;
+    margin-top: -5px;
+}
+
+/* select one quantity */
+.selectonespecial .sub-buttons {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.selectonespecial .selectonequantity-minus,
+.selectonespecial .selectonequantity-quantity,
+.selectonespecial .selectonequantity-plus {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.selectonespecial .selectonequantity-minus,
+.selectonespecial .selectonequantity-plus {
+    background-color: #f6a800;
+    color: #fff;
+    width: 40px;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #f6a800;
+    border-style: solid;
+}
+
+.selectonespecial .selectonequantity-quantity {
+    background-color: rgba(255,255,255, 0.9);
+    color: #231f20;
+    font-size: 14pt;
+    font-weight: bold;
+    width: 45px;
+}
+
+/* select one v2 quantity */
+.selectonespecialv2 .sub-buttons {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.selectonespecialv2 .selectonequantity-minus,
+.selectonespecialv2 .selectonequantity-quantity,
+.selectonespecialv2 .selectonequantity-plus {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.selectonespecialv2 .selectonequantity-minus,
+.selectonespecialv2 .selectonequantity-plus {
+    background-color: #f6a800;
+    color: #fff;
+    width: 40px;
+    border-radius: 5px 5px 5px 5px;
+    border-color: #f6a800;
+    border-style: solid;
+}
+
+.selectonespecialv2 .selectonequantity-quantity {
+    background-color: rgba(255,255,255, 0.9);
+    color: #333;
+    font-size: 14pt;
+    font-weight: bold;
+    width: 45px;
+}
+
+/* dragalong */
+
+.dragalong {
+    position: relative;
+    float: left;
+    height: 400px;
+    width: 400px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+
+#dragalongtext {
+    margin-top: 380px;
+    width: 400px;
+    margin-left: -17px;
+    background-color: transparent;
+    text-align: center;
+    padding-top: 10px;
+    color: #fff;
+    font-family: "lobster", serif;
+}
+
+#dragalongdesc {
+    text-align: center;
+}
+
+.Select-1-DragAlong-buttons {
+    float: left;
+}
+
+/* order review */
+#orderreview {
+    background-color: transparent;
+    border: 2px solid #f6a800;
+    color: #fff;
+    display: table;
+    font-size: 12pt;
+    margin-bottom: 10pt;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    position: relative;
+}
+
+.order-review-image {
+    background-repeat : no-repeat;
+    background-size: contain;
+    height : 34px;
+    width : 34px;
+}
+
+.order-review-quantity {
+    display: table-cell;
+    min-width: 100px;
+    vertical-align: middle;
+}
+
+.order-review-quantity-button {
+    background-color: transparent;
+    border: 0 solid;
+    color: #f6a800;
+    display: inline-block;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: top;
+}
+
+.order-review-quantity-text {
+    display: inline-block;
+    font-size: 16pt;
+    font-weight: 700;
+    text-align: center;
+    width: 15px;
+    line-height: 26px;
+    vertical-align: middle;
+    padding-right: 20px;
+    padding-left: 3px;
+}
+
+.order-review-text {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.order-review-modtext {
+    font-size: 11pt;
+}
+
+.order-review-amount {
+    display: table-cell;
+    font-size: 18pt;
+    font-weight: 700;
+    text-align: right;
+    min-width: 150px;
+    vertical-align: top;
+}
+
+/* Control buttons*/
+.control-button {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.00);
+    border: 0 solid;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 0;
+    margin-bottom: 2px;
+    font-size: 16pt;
+    height: 40px;
+    width: 165px;
+    font-weight: bold;
+    box-shadow: none;
+}
+
+    .control-button div {
+        display: inline-block;
+    }
+
+    .control-button:hover,
+    .control-button:focus,
+    .control-button:active {
+        color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(255, 255, 255, 0.00);
+        border: none;
+    }
+
+.control-button-left {
+}
+
+.control-button-center {
+    text-align: center;
+}
+
+.control-button-cancel {
+    text-align: center;
+    padding: 0 0 0 0;
+}
+
+.control-button-right {
+    text-align: right;
+}
+
+.control-button-complete {
+    text-align: center;
+    float: none;
+}
+
+.modal-content {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-top: solid 2px #f6a800;
+    border-bottom: solid 2px #f6a800;
+}
+
+.modal-body {
+    font-size: 16pt;
+    text-align: center;
+}
+
+.modal-footer {
+    text-align: center;
+    border-top: none;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+#payment {
+color: #fff;
+  font-size: 22pt;
+  text-align: left;
+  margin-top: -50px;
+  height: 50px;
+  border-color: transparent;
+  }
+  
+   #paymentclip-credit{
+	margin-left: auto;
+	margin-right: auto;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-top: solid 2px #f6a800;
+    border-bottom: solid 2px #f6a800;
+	padding: 20px 0 20px 0;
+	text-align: center;
+	}
+	
+	#paymentclip-select{
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-top: solid 2px #f6a800;
+    border-bottom: solid 2px #f6a800;
+	padding: 100px 0 20px 0;
+	text-align: center;
+	height: 250px;
+	}
+	
+	.payment-button{
+	border: 2px solid #fff;
+	   font-family: "lobster",serif;
+	}
+	
+	#checkout-tender {
+	margin-left: 350px;
+	margin-right: auto;
+	}
+	
+	#swipeCard{
+	   font-family: "lobster",serif;
+	   font-size: 40px;
+	}
+	
+	#acceptedCards {
+	
+	}
+	
+	#cards {
+	width: 20%;
+	padding-top: 20px;
+	margin-left: auto;
+	margin-right: auto;}
+	
+    .order-complete {
+    height: 250px;
+    }
+	
+		#ordernumber {
+	color: #f6a800;
+	font-family: "lobster", sans-serif;
+	font-size: 40px;
+	}
+
+#checkout-service-form .row,
+#checkout-tender-form .row,
+.complete-content {
+    width: 80%;
+    margin-left: 12%;
+}
+
+#checkout-tender-form .row,
+.complete-content {
+    min-height: 300px;
+}
+
+.card-image {
+	height:75px;
+	width: 75px;
+	background-repeat: no-repeat;
+    background-size: contain;
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+	margin: 5px 5px 5px 5px;
+}
+
+.visa {
+	background-image: url("../../other/assets/visa.png");
+}
+.mastercard {
+	background-image: url("../../other/assets/mastercard.png");
+}
+.amex {
+	background-image: url("../../other/assets/amex.png");
+}
+
+/* tablet landscape */
+@media (max-width: 1024px) {
+}
+
+
+/* tablet portrait*/
+@media (max-width: 992px) {
+
+    .menu-header-bg {
+    margin-top: 82px;
+}
+
+    .navbar-header {
+        margin-top: -85px;
+    }
+
+    .row-centered {
+        padding-bottom: 0;
+        margin-top: -50px;
+    }
+
+    .Select-1-of-N-buttons .row-centered {
+        padding-bottom: 20px;
+        margin-top: 15px;
+    }
+
+    #row0 {
+        margin-top: 50px;
+    }
+
+    .button-text {
+        font-size: 10pt;
+    }
+
+    .caption {
+        top: 150px;
+    }
+
+    .Select-Many-of-NE-Check-DA-buttons .caption, .Select-1-of-Mod-DA-buttons .caption, .Select-Many-of-N-DA-buttons .caption {
+        top: 150px;
+    }
+
+    .image-cropped {
+        height: 150px;
+    }
+
+    .dragalong {
+        display: none;
+    }
+
+    .Select-Many-of-NE-Check-DA-buttons .col-centered,
+    .Select-1-of-Mod-DA-buttons .col-centered,
+    .Select-Many-of-N-DA-buttons .col-centered {
+        float: none;
+    }
+
+    .Select-Many-of-NE-Check-DA-buttons #row1,
+    .Select-1-of-Mod-DA-buttons #row1,
+    .Select-Many-of-N-DA-buttons #row1 {
+        margin-top: 0;
+    }
+
+    .Select-Many-of-NE-Check-buttons .button-down-state #check, .button-many-selected {
+        left: 30px;
+        top: 50px;
+    }
+
+    .Select-Many-of-NE-Check-Small-buttons .button-down-state #check, .button-many-selected {
+        left: 30px;
+        top: 50px;
+    }
+
+    .Select-Many-of-NE-Check-DA-buttons .button-down-state #check, .button-many-selected {
+        left: 30px;
+        top: 50px;
+    }
+
+    .Select-Many-of-N-DA-buttons .button-down-state #check, .button-many-selected {
+        left: 30px;
+        top: 50px;
+    }
+
+    .Select-Many-of-8-NE-Check-buttons .button-down-state #check, .button-many-selected {
+    top: 30px;
+    left: 50px;
+}
+
+    .overlaycontainer {
+    margin-left: 70px;
+}
+
+    .ibutton,
+.ibutton:active,
+.ibutton:hover,
+.ibutton:focus {
+    background-color: transparent;
+    background-image: url("../../Images/i-button.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+    height: 30px;
+    width: 30px;
+    margin-top: -100px;
+    margin-left: -10px;
+    position: absolute;
+    border: none;
+}
+
+    .Select-1-of-DA-buttons .ibutton,
+.Select-1-of-DA-buttons .ibutton:active,
+.Select-1-of-DA-buttons .ibutton:hover,
+.Select-1-of-DA-buttons .ibutton:focus {
+    margin-top: -70px;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+    .item-description-text {
+    font-size: 10px;
+}
+
+    .order-review-text {
+        font-size: 10px;
+    }
+
+    .order-review-modtext {
+        font-size: 10px;
+    }
+}
+
+/* phones */
+@media(max-width: 767px) {
+
+            .overlaycontainer {
+                        display: block;
+            }
+
+
+    .brand-logo {
+        display: none;
+    }
+
+    #navMobile {
+        margin-top: 20px;
+    }
+
+    .menu-header-bg {
+        margin-top: 70px;
+    }
+
+    .iorderfast-content {
+        padding: 0 3px 0 3px;
+    }
+
+    .thumbnail {
+        display: table;
+        width: 100%;
+        box-shadow: 0 0 0;
+        margin-bottom: 5px;
+        border-radius: 0;
+        min-height: 50px;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        height: 70px;
+        position: relative;
+        border: 2px solid #fff;
+    }
+
+.Select-1-of-DA-buttons .ibutton, .Select-1-of-DA-buttons .ibutton:active, .Select-1-of-DA-buttons .ibutton:hover, .Select-1-of-DA-buttons .ibutton:focus {
+    margin-top: -30px;
+    margin-left: 85%;
+}
+
+.Select-1-of-DA-buttons #row1 {
+    padding-top: 0;
+    margin-top: auto;
+}
+
+.Select-1-of-DA-buttons {
+    padding-top: 0;
+}
+
+    .Select-1-of-2-Text-buttons .thumbnail, .Select-1-of-2-Mod-Text-buttons .thumbnail, .Select-1-of-DA-buttons .thumbnail {
+        display: table;
+        width: 100%;
+        box-shadow: 0 0 0;
+        margin-bottom: 5px;
+        border-radius: 0;
+        min-height: 50px;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        height: 70px;
+        position: relative;
+        border: 2px solid #fff;
+}
+
+    .Select-Many-of-N-DA-buttons .col-centered,
+    .Select-Many-of-NE-Check-DA-buttons .col-centered,
+    .Select-1-of-Mod-DA-buttons .col-centered {
+        width: 100%;
+    }
+
+    .image-cropped {
+        position: absolute;
+        width: 70px;
+        border-radius: 0 0 0 0;
+        background-position: center center;
+        height: 70px;
+        top: 0;
+    }
+
+    .caption {
+        top: 0;
+        bottom: 0;
+        border-left: 70px solid transparent;
+        border-radius: 0 0 0 0;
+    }
+
+    .Select-1-of-2-Text-buttons .caption, .Select-1-of-2-Mod-Text-buttons .caption, .Select-1-of-DA-buttons .caption {
+    top: 0;
+}
+
+    .button-text {
+        position: relative;
+        font-size: 14pt;
+        width: 95%;
+        vertical-align: middle;
+        padding-top: 10px;
+    }
+
+    .Select-1-of-2-Text-buttons .button-text, .Select-1-of-2-Mod-Text-buttons .button-text, .Select-1-of-DA-buttons .button-text {
+        position: relative;
+        font-size: 14pt;
+        width: 95%;
+        vertical-align: middle;
+        padding-top: 10px;
+}
+
+    .description-text {
+        width: 95%;
+    }
+
+
+
+
+
+    .col-centered {
+        padding-left: 15px;
+        width: 100%;
+    }
+
+    .row-centered {
+        padding-bottom: 0;
+        margin-top: 0;
+    }
+
+    .Select-1-of-N-buttons .row-centered {
+        padding-bottom: 0;
+        margin-top: 0;
+    }
+
+    .selectone .button-text {
+        padding-right: 20px;
+    }
+
+    .button-price {
+        font-size: 9pt;
+        margin-top: 0;
+    }
+
+    .selectmanyof #check {
+        line-height: 47px;
+    }
+
+    .button-many-selected {
+        font-size: 24pt;
+        top: 10px;
+        left: 20px;
+        height: 35px;
+        width: 35px;
+        margin-top: -5px;
+    }
+
+    .Select-Many-of-NE-Check-buttons .button-down-state #check, .button-many-selected {
+        top: 12px;
+        left: 20px;
+        height: 35px;
+        width: 35px;
+    }
+
+    .Select-Many-of-8-NE-Check-buttons .button-down-state #check, .button-many-selected {
+        top: 12px;
+        left: 20px;
+        height: 35px;
+        width: 35px;
+    }
+
+    .Select-Many-of-NE-Check-Small-buttons .button-down-state #check, .button-many-selected {
+        top: 12px;
+        left: 20px;
+        height: 35px;
+        width: 35px;
+    }
+
+    .Select-Many-of-N-DA-buttons .button-down-state #check, .button-many-selected {
+        top: 12px;
+        left: 20px;
+        height: 35px;
+        width: 35px;
+    }
+
+    .Select-Many-of-NE-Check-DA-buttons .button-down-state #check, .button-many-selected {
+        top: 12px;
+        left: 20px;
+        height: 35px;
+        width: 35px;
+    }
+
+    .selectonequantity .image-cropped {
+        overflow: visible;
+        width: 100%;
+        background-position-x: 0;
+    }
+
+    .selectonequantity .sub-buttons {
+        display: block;
+        position: relative;
+        margin-right: 70px;
+        margin-left: 35px;
+        z-index: 99;
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .selectonequantity-minus,
+    .selectonequantity-plus {
+        opacity: 1.0;
+    }
+
+    .row {
+        margin-bottom: auto;
+    }
+
+    .popover {
+        z-index: 1031;
+    }
+
+    .item-description-text {
+        font-size: 10pt;
+        margin-bottom: 5px;
+    }
+
+
+    /* page header*/
+    .page-header {
+        font-size: 18pt;
+        text-align: left;
+        padding-left: 3px;
+        width: 80%;
+    }
+
+    /* receipt */
+
+    .order-receipt {
+        max-width: 70px;
+    }
+    #clip-receipt {
+        margin-top: -63px;
+    }
+
+    #txtTotalLabel {
+        font-size: 8pt;
+    }
+
+    #txtTotal {
+        font-size: 12pt;
+    }
+
+    .order-receipt {
+        font-size: 8pt;
+        padding-right: 0;
+    }
+
+    .navbar-fixed-top {
+        height: 70px;
+    }
+
+    .navbar-header {
+        position: relative;
+        margin-top: 0;
+        padding-left: 0;
+        width: 100%;
+        font-size: 14pt;
+    }
+
+    .navbar-default .navbar-toggle {
+        border-color: #fff;
+    }
+
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #fff;
+        }
+
+    .navbar-toggle {
+        margin-right: -15px;
+        padding: 3px 3px;
+        margin-top: -30px;
+        float: right;
+        color: #fff;
+    }
+
+    .navbar-default .navbar-collapse {
+        border: 0 solid;
+    }
+
+    .navbar-collapse {
+        background-color: #f6a800;
+    }
+
+    .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+        background-color:  #f6a800;
+    }
+
+    .navbar-text {
+        margin-left: 15px;
+        font-size: 18px;
+    }
+
+    #controlbuttons .row,
+    #futureorder-controlbuttons .row,
+    #previousorders-controlbuttons .row,
+    #payment-controlbuttons .row,
+    #complete-controlbuttons .row {
+        margin-left: 3px;
+        padding-right: 3px;
+    }
+
+    .control-button {
+        width: 95px;
+        font-size: 9pt;
+        box-shadow: none;
+    }
+
+    .control-button-left {
+        padding: 0 0 0 0;
+        text-align: left;
+    }
+
+    .control-button-center {
+        padding: 0 0 0 0;
+    }
+
+    .control-button-right {
+        padding: 0 10px 0 0;
+    }
+
+    .control-button-done {
+        float: right;
+        margin-right: 0;
+    }
+
+    .control-button-continue {
+        float: right;
+        margin-right: 0;
+    }
+
+    .control-button-orderreview {
+        float: right;
+        margin-right: 0;
+    }
+
+    .control-button-submit {
+        float: right;
+        margin-right: 0;
+    }
+
+    #orderreview {
+        margin-left: 0;
+        min-height: 40px;
+        width: 100%;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .order-review-amount {
+        font-size: 12pt;
+        min-width: 60px;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    .order-review-quantity {
+        min-width: 85px;
+    }
+
+    .order-review-quantity-text {
+        font-size: 10pt;
+        width: 10px;
+        text-align: center;
+        padding-right: 10px;
+    }
+
+    .order-review-quantity-button {
+        font-size: 8pt;
+    }
+
+    .order-review-text {
+        font-size: 10pt;
+    }
+
+    .order-review-modtext {
+        font-size: 9pt;
+    }
+
+    #checkout-service-form .row,
+    #checkout-tender-form .row,
+    .complete-content {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* complete */
+    .order-complete {
+        margin-top: 15px;
+    }
+	
+
+    .ibutton,
+.ibutton:active,
+.ibutton:hover,
+.ibutton:focus {
+    height: 20px;
+    width: 20px;
+    margin-top: -25px;
+    margin-left: 85%;
+}
+}
+
+/* iphone landscape*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+
+    .caption {
+        width: 88%;
+    }
+}
+}

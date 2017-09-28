@@ -1,0 +1,146 @@
+﻿/* Default NEXTEP JavaScript Client css */
+
+/* scaffolding */
+html, body {
+
+}
+
+*::-webkit-scrollbar { 
+    display: none; 
+}
+.order-review-buttons::-webkit-scrollbar {
+    display: block;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+div {
+    user-select: none; 
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    -o-user-select: none;
+}
+
+#debug {
+    display:none;
+    max-height: 0;
+}
+
+#content .container {
+    padding:0 0 0 0;
+}
+
+/* Forms */
+table {
+    width: 100%;
+    border: 0 solid;
+}
+
+tbody {
+    border: 0 solid;
+}
+
+tr {
+    border: 0 solid;
+}
+
+.table-responsive {
+    border: 0 solid;
+    overflow-x: hidden;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    text-decoration: none;
+    outline: none;
+    user-select: none; 
+    -webkit-user-select: none; /* Chrome/Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    -o-user-select: none;
+}
+
+button:focus,
+button:active {
+    outline: none;
+}
+
+/* Control buttons*/
+.control-button-hidden {
+    display: none;  
+}
+
+
+/* overlay classes */
+.overlaycontainer {
+	position: relative;
+	top: 0;
+	height: 40px;
+}
+
+.overlaycontainer .overlay {
+	position: absolute;
+	height:40px;
+	width: 100%;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+@media(max-width: 767px) {
+	/* hide on phones */
+	.overlaycontainer {
+		display: none;
+	}
+}
+.alternateLanguageToStart {
+    position: fixed; /* absolute wasn't working right... The element repositioned itself when returning to the splash screen a second time. */
+    bottom: 0px;
+    left: 0px;
+    z-index: 3;
+    /*background-color: rgb(0,67,48);
+    border: 2px solid rgb(0,153,0);*/
+    border: 2px solid white;
+    background-color: rgba(0,0,0,0); /* clear */
+    width: 206px;
+    height: 57px;
+    color: white;
+
+}
+
+.camera-frame {
+ position: fixed;
+    height: 240px;
+    width: 320px;
+    bottom: 50px;
+    right: 40px;
+    z-index: 11;
+    border: 2px solid white;
+    background-color: rgba(0,0,0,0); /* clear */
+    color: white;
+}
+
+#videofeedwrapper img {
+     position: relative;
+    height: 240px;
+    width: 320px;
+    top: 0px;
+    left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+#facePopup {
+    
+}
+
+
+
+.ux-hide-cursor {
+    cursor: none !important;
+}

@@ -1,0 +1,935 @@
+﻿/**
+ * OrderingUX extends the common ordering phase with UX specific methods.
+ * @constructor
+ */
+function OrderingUX(orderingParams) {
+    var self = this;
+    Ordering.call(self, orderingParams);
+
+    self.currentPopover = null;
+    self.isOrderReview = false;
+
+    // There is a start in UX and NEXTEP Mobile. It is different in UX though.
+    self.start = function () {
+
+        // send kiosk status
+        _nex.manager.sendStatusUpdate(_nex.manager.statusType.ORDERING);
+
+        if (self.commandListener !== null) {
+            _nex.communication.removeListener(self.commandListener);
+        }
+        self.commandListener = _nex.communication.createListener("ADDTOORDERRESPONSE", self.commandReceived);
+        _nex.communication.addListener(self.commandListener);
+
+        self.order = self.orderManager.currentOrder;
+        self.menus = $.extend(true, [], self.theme.menus);
+        self.loadMenu();
+    };
+
+    // Stop is particular to UX.
+    self.stop = function () {
+        // Say we stop the phase early because we are going offline, for example.
+        // Make sure we stop listening.
+        if (self.commandListener !== null) {
+            _nex.communication.removeListener(self.commandListener);
+        }
+    };
+
+    // Different for UX vs NEXTEP Mobile
+    // template method
+    self.loadTemplate = function (callback) {
+
+        self.orderUpdated = function () {
+            _nex.assets.templateManager.executeBehavior(self.currentMenu);
+            _nex.assets.templateManager.refreshButtons(self.currentMenu, self.buttons);
+            self.updateControlButtons();
+        };
+
+        // set header
+        $('#header-text').empty();
+        $('#header-text').append(self.theme.itemTextByType(self.currentMenu, "HEADER"));
+
+        // set menu description
+        $('#menuDescription').empty();
+        $('#menuDescription').append(itemFormatting.buttonText(self.theme.itemTextByType(self.currentMenu, "MENUDESCRIPTION")));
+
+        $('#template').empty();
+
+        // load ad
+        // TODO - self.loadAd(self.currentMenu.ad, self.currentMenu.template);
+
+        // load drag-a-long
+        self.loadDragALong(self.currentMenu.template);
+
+        // load buttons
+        var buttonCount = 0;
+        var rowCount = -1;
+        var rowId = "";
+
+        $('#template').attr("class", "");
+        $('#template').append("<div id='buttons' class='buttons' ></div>");
+
+        var templateButtons = $('#template').find('#buttons');
+        templateButtons.empty();
+
+        self.buttons = self.getAvailableButtons();
+
+        if (!_nex.assets.templateManager.hasButtons(self.currentMenu)) {
+            // special templates that don't have buttons
+            // load static content
+            self.theme.loadMedia("templates/" + self.currentMenu.template + ".html", self.currentMenu.id, null, function (mediaId, data) {
+                if (data !== null) {
+                    templateButtons.append(data);
+                }
+                _nex.assets.templateManager.templateLoaded(self.currentMenu);
+            });
+        } else if (self.buttons.length > 0) {
+
+            var loadButtons = true;
+            // if there is only one button determine if menu can be auto advanced
+            if ((self.buttons.length === 1) &&
+                (self.theme.system.USERINTERFACE.autoselectmenu.toLowerCase() == "true")) {
+                // do not allow the button loop on to itself
+                if ((self.buttons[0].name === "MENUBUTTON") && (self.buttons[0].nextMenu !== self.currentMenuId)) {
+                    loadButtons = false;
+
+                    self.menustack[self.menustack.length - 1].skipped = true;
+                    self.loadMenu(self.buttons[0].nextMenu());
+                } else if (self.buttons[0].name === "SELECTONEMODIFIER") {
+                    loadButtons = false;
+                    self.menustack[self.menustack.length - 1].skipped = true;
+                    self.addToOrder(self.buttons[0].item.posid, self.buttons[0].priceLevel(), self.buttons[0].buttonName, self.buttons[0].nextMenu());
+                }
+            }
+
+            if (loadButtons &&
+                (self.currentMenuId === 1)) {
+                // if menu 1 look to see if a menubutton test was passed as part of the query string
+                if (_nex.hasOwnProperty("parameters") &&
+                    _nex.parameters.hasOwnProperty("menubutton") &&
+                    (_nex.parameters.menubutton.length > 0)) {
+
+                    // look to see if the button text of any of the buttons matches the menubutton parameter
+                    for (var b = 0; (b < self.buttons.length) && loadButtons; b++) {
+                        if (self.buttons[b].buttonText().toLowerCase().indexOf(_nex.parameters.menubutton.toLowerCase()) > -1) {
+
+                            loadButtons = false;
+
+                            self.menustack[self.menustack.length - 1].skipped = true;
+                            self.loadMenu(self.buttons[b].nextMenu());
+                        }
+                    }
+                }
+            }
+
+            if (loadButtons) {
+
+                // set menu description
+                var menuDesc = $("#menuDescription");
+                if (menuDesc.length > 0) {
+                    // uncomment for debugging
+                    // menuDesc.append("Menu id: " + self.currentMenuId +  "; template: " + self.currentMenu.template);
+                }
+
+                var buttonsPerRow = _nex.assets.templateManager.getColumnCount(self.currentMenu.template, self.buttons.length);
+
+                // add the template name as a css classname
+                templateButtons.addClass(self.currentMenu.template.replace(/ /g, "-") + "-buttons");
+                var templateDetail = _nex.assets.templateManager.findTemplate(self.currentMenu.template);
+                if (templateDetail !== null) {
+                    for (var i = 0; (i < self.buttons.length) ; i++) {
+                        if ((rowCount === -1) || (buttonCount >= buttonsPerRow)) {
+                            rowCount++;
+                            buttonCount = 0;
+
+                            rowId = "row" + rowCount;
+                            templateButtons.append("<div id='" + rowId + "' class='row row-centered' ></div>");
+                        }
+
+                        var buttonName = "button" + "-" + rowCount + "-" + i.toString();
+                        buttonCount++;
+                        var button = self.buttons[i];
+                        button.descriptionType = (templateDetail.hasOwnProperty("descriptiontype") && (templateDetail.descriptiontype.length > 0)) ? templateDetail.descriptiontype : "i-button";
+                        button.loadButton(buttonName);
+
+                        if (button.html !== null) {
+                            button.html.addClass("col-" + buttonCount.toString());
+                            button.html.appendTo('#' + rowId);
+                        }
+                    }
+
+                    // update the menustack with the posids for mod on the current item
+                    var current = self.currentItem();
+                    if ((current !== null) && (current.ITEM !== undefined)) {
+                        for (var m = 0; m < current.ITEM.length; m++) {
+                            if (current.ITEM[m].menuid === self.currentMenu.id) {
+                                self.menustack[self.menustack.length - 1].posids.push(current.ITEM[m].posid);
+                            }
+                        }
+                    }
+
+                } else {
+                    var gotoSplash = (self.currentMenuId === self.startMenu);
+                    var templateErrorProp = $.extend(true, {}, _nex.assets.popupManager.errorPopup);
+                    templateErrorProp.message = "Sorry, unable to load menu.";
+                    _nex.assets.popupManager.showPopup(templateErrorProp, function () {
+                        if (gotoSplash) {
+                            _nex.manager.cancelCurrentPhase();
+                            //_iorderfast.nav.loadContent("splash"); TODO - update NEXTEP Mobile
+                        } else {
+                            self.goBack();
+                        }
+                    });
+                }
+
+                // load menu background
+                if (self.currentMenu.menubg.length > 0) {
+                    // only change the menubg if it is different
+                    if (self.currentMenuBg !== self.currentMenu.menubg) {
+                        self.currentMenuBg = self.currentMenu.menubg;
+                        // set the background-image on the #ordering target so the image is behind all content
+                        if (inPreviewer()) {
+                            $("#ordering").attr("style", "background-image: url('../Media.aspx?media=other/" + self.currentMenuBg + "');");
+                        } else {
+                            $("#ordering").attr("style", "background-image: url('themes/" + self.theme.id + "/media/other/" + self.currentMenuBg + "');");
+                        }
+                    }
+                } else {
+                    $("#ordering").attr("style", "background-image: none");
+                }
+
+                // update the menu stack with modifiers that are on the order
+                var currentMenuStackIndex = (self.menustack.length - 1);
+                if ((self.currentMenu.tag !== null) && (self.currentMenu.tag !== undefined)) {
+                    $('#template').attr("menutag", self.currentMenu.tag.toString());
+                }
+                $('#template').attr("class", "menu-" + self.currentMenuId.toString());
+                _nex.assets.templateManager.templateLoaded(self.currentMenu);
+            }
+        } else {
+            var errorProp = $.extend(true, {}, _nex.assets.popupManager.errorPopup);
+
+            // if there is a continue menu then goto the next menu
+            // otherwise show an error when no buttons are available
+            if (self.currentMenu.continuemenu.length > 0) {
+                self.menustack[self.menustack.length - 1].skipped = true;
+                self.loadMenu(Number(self.currentMenu.continuemenu));
+            } else if (self.currentMenuId === self.startMenu) {
+                // go to the splash
+                errorProp.message = "Sorry, no items are currently available. Please try again later.";
+                _nex.assets.popupManager.showPopup(errorProp, function () {
+                    _nex.manager.cancelCurrentPhase();
+                    //_iorderfast.nav.loadContent("splash"); TODO - update for NEXTEP Mobile
+                });
+
+            } else {
+                // go back one menu
+                errorProp.message = "Sorry, no items are currently available.";
+                _nex.assets.popupManager.showPopup(errorProp, function () {
+                    self.goBack();
+                });
+            }
+        }
+
+    };
+
+    // Changed for UX vs NEXTEP Mobile
+    self.getAvailableButtons = function (menu) {
+        var availableButtons = [];
+        // if the menu parameter is not passed in use the current menu
+        if (menu === undefined) {
+            menu = self.currentMenu;
+        }
+        var menuItems = (Array.isArray(menu.MENUITEM)) ? menu.MENUITEM : new Array(menu.MENUITEM);
+        var menuSortByPopularity = menu.hasOwnProperty("sortby") && menu.sortby.toUpperCase() === "POPULARITY";
+        for (var i = 0; (i < menuItems.length) ; i++) {
+            var itemRank = "zzzzzzzzzz";
+            var button = _nex.assets.buttonFactory.createButton(menuItems[i], menu.template);
+            button.hasItemRank = false;
+            if (button !== null) {
+                button.init(menuItems[i]);
+                // check if the menu item is enabled
+                if (button.enabled()) {
+
+                    // determine if the button contains a filter (aka Menu Genie); non-filtering buttons are add to the available button array
+                    if (!button.hasFilter()) {
+                        // non-filter button with menu items to be sorted by popularity
+                        if (menuSortByPopularity && _nex.assets.theme.kiosk.hasOwnProperty("ITEMRANK") && _nex.assets.theme.kiosk.ITEMRANK.hasOwnProperty("MENURANK")) {
+                            itemRank = self.findItemRank(menuItems[i][menuItems[i].buttontype].posid);
+                            if (itemRank !== "zzzzzzzzzz") {
+                                button.sortvalue = itemRank;
+                                button.hasItemRank = true;
+                            }
+                        }
+                        availableButtons.push(button);
+                    } else {
+                        // filtered button (aka Menu Genie)
+                        var filtered = true;
+
+                        if ((button.attributes().length === 0) && (button.itemClassId().length === 0) && button.selectRecipe() !== true && button.selectSuggested() !== true) {
+                            filtered = false;
+                        } else {
+                            var itemType = _nex.assets.buttonFactory.getItemTypeForButton(button.name);
+                            var filteredItemsList = self.getAvailableFilteredMenuItems(button.attributes(), button.itemClassId(), itemType, button.priceLevel(), button.selectRecipe(), button.selectSuggested());
+                            if (filteredItemsList.length === 0) {
+                                filtered = false;
+                            } else {
+
+                                //add the filtered items.
+                                for (var j = 0; j < filteredItemsList.length; j++) {
+                                    var menuItem = menuItems[i];
+                                    var tempMenuItem = $.extend(true, {}, menuItem);
+
+                                    var tempButton = _nex.assets.buttonFactory.createButton(tempMenuItem, menu.template);
+
+                                    tempMenuItem[menuItem.buttontype].posid = filteredItemsList[j].posid;
+                                    tempMenuItem[menuItem.buttontype] = self.setPriceLevelFromMenuFilter(tempMenuItem[menuItem.buttontype]);
+                                    // add the button text to be used for sorting.
+                                    if (menuItem[menuItem.buttontype].sortby.toLowerCase() === "attribute") {
+                                        var attr = self.theme.findItemAttribute(filteredItemsList[j], menuItem[menuItem.buttontype].sortattribute);
+                                        tempButton.sortvalue = (attr !== null) ? attr.value.toLowerCase() : "";
+                                        if (tempButton.sortvalue.toString().length === 0) {
+                                            tempButton.sortvalue = "zzzzzzzzzz";
+                                        }
+                                    }
+                                    if (menuItem[menuItem.buttontype].sortby.toLowerCase() === "popularity") {
+                                        if (_nex.assets.theme.kiosk.ITEMRANK) {
+                                            itemRank = self.findItemRank(tempMenuItem[menuItem.buttontype].posid);
+                                            if (itemRank !== "zzzzzzzzzz") {
+                                                tempButton.sortvalue = itemRank;
+                                                tempButton.hasItemRank = true;
+                                            }
+                                            tempButton.sortvalue = self.findItemRank(tempMenuItem[menuItem.buttontype].posid);
+                                        }
+                                    }
+                                    else if (menuItem[menuItem.buttontype].sortby.toLowerCase() == "buttontext") {
+                                        tempButton.sortvalue = self.theme.itemTextByType(filteredItemsList[j], "BUTTONTEXT");
+                                    } else {
+                                        tempButton.sortvalue = self.theme.itemTextByType(filteredItemsList[j], "BUTTONTEXT");
+                                    }
+                                    tempButton.init(tempMenuItem);
+                                    availableButtons.push(tempButton);
+                                    tempMenuItem = null;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // sort the buttons
+        for (i = 0; i < availableButtons.length; i++) {
+            if (!availableButtons[i].hasOwnProperty("sortvalue")) {
+                //give non ranked buttons lower presidence by adding 10000.
+                //the menu sortby property takes presidence.
+                if (!availableButtons[i].hasItemRank && menu.hasOwnProperty("sortby") && menu.sortby.toLowerCase() === "popularity") availableButtons[i].sortvalue = String(i + 10000);
+            }
+        }
+
+        availableButtons.sort(self.sortButtonTextOrder);
+
+        return availableButtons;
+    };
+
+    // Only in UX
+    // Returns true if the string or number is numeric.
+    function isNumeric(num) {
+        // One way check if a variable (including a string) is a number, is to check check if it is not NaN.
+        return !isNaN(num);
+    }
+
+    // Only in UX
+    self.commandReceived = function (commandName, result) {
+        if (commandName === "ADDTOORDERRESPONSE") {
+            self.pending = false;
+            // var result = (typeof data === "string") ? JSON.parse(data) : data; // TODO - update NEXTEP Mobile to pass in the parsed result
+            if (result.responseReceived === "true") {
+
+                self.order.update(result.ORDER);
+
+                if (self.orderUpdated !== undefined) {
+                    self.orderUpdated();
+                }
+
+                self.updateReceipt();
+            }
+
+        } else {
+            console.log("ordering.commandReceived - Unexpected command: " + commandName);
+        }
+
+    };
+
+    // Only in UX
+    self.trackClick = function (buttonName, buttonText) {
+        // The button name can be split to extract out the button index.
+        var buttonIndex = "";
+        if (buttonName) {
+            var buttonNameParts = buttonName.split('-');
+
+            if (buttonNameParts.length >= 3) {
+                buttonIndex = Number(buttonNameParts[2]);
+                if (isNumeric(buttonIndex)) {
+                    // Following along with the Flash, add one to the button index.
+                    buttonIndex = buttonIndex + 1;
+                } else {
+                    buttonIndex = "";
+                }
+                //console.debug("setting button index to " + buttonIndex);
+            }
+        } else {
+            console.debug("Unable to get info for button " + buttonName);
+        }
+        var currentMenuId = self.currentMenuId; // equivalent to self.currentMenu.id
+        var menuContext = self.currentMenu.title;
+        var BUTTON_TYPE = "menu"; // will be translated to 0
+        _nex.utility.buttonTracking.track(buttonIndex, buttonText, currentMenuId, menuContext, BUTTON_TYPE);
+    };
+
+    // Changed for UX vs NEXTEP Mobile
+    self.addToOrder = function (posid, priceLevel, buttonName, nextMenu, callback) {
+        // send ADDTOORDER to the server
+        if (!self.pending) {
+            self.pending = true; // prevent multiple clicks
+            var pricedBy = _nex.assets.templateManager.templatePricedBy(self.currentMenu.template);
+            var buttonInfo = self.getButtonInfo(buttonName);
+
+            _nex.communication.send(new _nex.commands.AddToOrder(posid, priceLevel, "1", self.currentMenuId, (self.menustack.length - 1), self.currentMenu.upsell, pricedBy, buttonInfo), function (result) {
+                self.pending = false;
+                // var result = (typeof data === "string") ? JSON.parse(data) : data; // TODO - update NEXTEP Mobile to pass in the parsed result
+                if (result.responseReceived === "true") {
+
+                    if (result.added !== "true") {
+                        self.menustack[self.menustack.length - 1].removePosid(posid);
+                    } else {
+                        // add the posid to the menustack so it can be removed when the back button is pressed
+                        self.menustack[self.menustack.length - 1].posids.push(posid);
+                    }
+
+                    if (self.orderUpdated !== undefined) {
+                        self.orderUpdated();
+                    }
+
+                    if (nextMenu !== undefined) {
+                        self.loadMenu(nextMenu);
+                    }
+                }
+
+                if (callback !== undefined) {
+                    callback(result);
+                }
+            }, "ADDTOORDERRESPONSE");
+        }
+    };
+
+    // Go into the previousOrders phase. If previousOrders aren't configured, it will skip ahead to the ordering phase.
+    self.gotoPreviousOrders = function () {
+        _nex.assets.phaseManager.changePhase(_nex.assets.phaseManager.phaseType.PREVIOUS_ORDERS, function () {
+            _nex.previousOrders.start();
+        });
+    };
+
+    // Go from the ordering phase to the payment phase.
+    self.gotoPayment = function () {
+
+        self.hidePopupPager();
+        self.hidePopupName();
+        _nex.assets.phaseManager.changePhase(_nex.assets.phaseManager.phaseType.PAYMENT, function () {
+            _nex.payment.start();
+        });
+    };
+    self.popupPager = function () {
+        self.hidePopupName();
+        self.hidePopupPager();
+
+
+        var showsplit = false;
+        var pagerenabled = false;
+        if (_nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER !== null && _nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER !== undefined) {
+            if (_nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER.hasOwnProperty("enabled")) {
+                pagerenabled = _nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER.enabled.toLowerCase() === 'true';
+            }
+        }
+
+        //if pager is enabled....
+        if (pagerenabled) {
+
+            var popupString = "PagerPopup";
+            var popup = $.extend(true, {}, _nex.assets.popupManager[popupString]);
+
+
+            popup.message = _nex.assets.theme.getTextAttribute("POSTORDERING", "pager", "Please enter your pager number");
+
+
+            // Bind methods to call when they hit the buttons.
+            popup.buttons[0].clickEvent = "_nex.ordering.popupName();";
+            popup.buttons[1].clickEvent = "_nex.ordering.gotoPayment();";
+            _nex.keyboard.pagerpad.bindKeys();
+            _nex.keyboard.pagerpad.setMaxLength(15);
+            _nex.assets.popupManager.showPopup(popup);
+        }
+        else {
+            //pager turned off skip
+            _nex.ordering.gotoPayment();
+        }
+    };
+    self.popupName = function () {
+        self.hidePopupName();
+        self.hidePopupPager();
+        var showsplit = self.isPagerSplit();
+        _nex.keyboard.namepad.data = '';
+        console.debug("Pager name split " + showsplit);
+        //if pager is enabled and so is the setting to split name and pager...
+        if (showsplit) {
+            var popupString = "NamePopup";
+            var popup = $.extend(true, {}, _nex.assets.popupManager[popupString]);
+
+
+            popup.message = _nex.assets.theme.getTextAttribute("POSTORDERING", "name", "Please enter your name");
+
+
+            // Bind methods to call when they hit the buttons.
+            popup.buttons[0].clickEvent = "_nex.ordering.gotoPayment();";
+            popup.buttons[1].clickEvent = "_nex.keyboard.namepad.data = '';_nex.ordering.gotoPayment();";
+
+            _nex.keyboard.namepad.bindKeys();
+
+            _nex.assets.popupManager.showPopup(popup);
+        }
+        else {
+            //no split setting, proceed to next step!
+            _nex.ordering.gotoPayment();
+
+        }
+    };
+    self.isPagerEnabled = function () {
+        if (_nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER !== null && _nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER !== undefined) {
+            if (_nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER.hasOwnProperty("enabled")) {
+                return _nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER.enabled.toLowerCase() === 'true';
+            }
+        }
+        return false;
+    };
+    self.isPagerSplit = function () {
+        if (self.isPagerEnabled()) {
+            //no check for null on pager needed here, as we have done it in the ispagerenabled.
+            if (_nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER.hasOwnProperty("splitpager")) {
+                return _nex.manager.theme.kiosk.PAYMENTPROFILE.PAGER.splitpager.toLowerCase() === 'true';
+            }
+        }
+        return false;
+    };
+    self.hidePopupName = function () {
+        var popupString = "NamePopup";
+        var popup = $.extend(true, {}, _nex.assets.popupManager[popupString]);
+        _nex.assets.popupManager.hidePopup(popup);
+    };
+    self.hidePopupPager = function () {
+        var popupString = "PagerPopup";
+        var popup = $.extend(true, {}, _nex.assets.popupManager[popupString]);
+        _nex.assets.popupManager.hidePopup(popup);
+    };
+    // Helper method common to all control buttons being clicked in this phase.
+    self._trackControlClick = function ($button, context) {
+        var BUTTON_INDEX = "";
+        var buttonText = $button.text();
+        var currentMenuId = self.currentMenuId;
+        var menuContext = context;
+        var BUTTON_TYPE = "control"; // will be translated to 0
+        _nex.utility.buttonTracking.track(BUTTON_INDEX, buttonText, currentMenuId, menuContext, BUTTON_TYPE);
+    };
+
+    // Button click handlers. Track the button click and then perform the action.
+    self._addItemClicked = function ($button) {
+        self._trackControlClick($button, "Add Item");
+        _nex.assets.soundManager.playButtonHit();
+        _nex.ordering.addItem();
+    };
+
+    self._backButtonClicked = function ($button) {
+        self._trackControlClick($button, "Back");
+        _nex.assets.soundManager.playButtonHit();
+        _nex.ordering.goBack();
+    };
+
+    self._cancelButtonClicked = function ($button) {
+        self._trackControlClick($button, "Cancel");
+        _nex.assets.soundManager.playButtonHit();
+        if (inPreviewer()) {
+            _nex.manager.cancelCurrentPhase(); // skip the prompt if we are just previewing
+        } else {
+            _nex.ordering.cancelOrderPrompt();
+        }
+    };
+
+    self._continueButtonClicked = function ($button) {
+        self._trackControlClick($button, "Continue");
+        _nex.assets.soundManager.playButtonHit();
+        _nex.ordering.gotoNextMenu();
+    };
+
+    self._reviewButtonClicked = function ($button) {
+        self._trackControlClick($button, "Review");
+        _nex.assets.soundManager.playButtonHit();
+        _nex.ordering.gotoOrderReview();
+    };
+
+    self._doneButtonClicked = function ($button) {
+        self._trackControlClick($button, "Done");
+        _nex.assets.soundManager.playButtonHit();
+        _nex.ordering.popupPager();
+
+    };
+
+    self._popoverHitTest = function (e) {
+        if (self.currentPopover !== null) {
+            //  plugin call
+            var hit = self.currentPopover.hitTestPoint({ "x": e.pageX, "y": e.pageY, "transparency": true });
+            self.currentPopover.data("keepshowing", (hit) ? "true" : "false");
+        }
+    };
+
+    // For UX only
+    // setPriceLevelFromMenuFilter
+    self.setPriceLevelFromMenuFilter = function (menu) {
+
+        if (menu !== undefined &&
+            (self.theme !== null && self.theme !== undefined) &&
+            self.theme.filter !== undefined &&
+            (self.theme.filter.itemIncludePriceLevel !== undefined &&
+            self.theme.filter.itemIncludePriceLevel !== null &&
+            self.theme.filter.itemIncludePriceLevel.length > 0)) {
+            var priceleveltouse = self.theme.filter.itemIncludePriceLevel;
+            if (menu.posid.length > 0) {
+                menu.pricelevel = priceleveltouse;
+            }
+            else {
+                menu.pricelevel1 = priceleveltouse;
+                menu.pricelevel2 = priceleveltouse;
+                menu.pricelevel3 = priceleveltouse;
+            }
+        }
+        return menu;
+    };
+
+    // Different in NEXTEP Mobile vs UX
+    self.updateControlButtons = function () {
+
+        if (self.currentMenu.startmenu.toString().toLowerCase() === "true") {
+            self.startMenu = self.currentMenuId;
+        }
+
+        var template = _nex.assets.templateManager.findTemplate(self.currentMenu.template);
+        var addItemVisible = false;
+
+        // update add item
+        var btnAddItem = $('#ctrl-add-item');
+        if (btnAddItem.length > 0) {
+            if ((template !== null) &&
+                (template.additembutton !== undefined) &&
+                (template.additembutton.toString().toLowerCase() === "true")) {
+
+                addItemVisible = true;
+
+                btnAddItem.removeClass('control-button-hidden');
+                var addItemText = _nex.assets.theme.getTextAttribute("ORDERREVIEW", "addanother", "");
+                if (addItemText.length === 0) {
+                    self.theme.getTextAttribute("ORDER", "addanother", "ADD ITEM");
+                }
+
+                self.theme.setControlButtonText("ctrl-add-item", addItemText);
+                btnAddItem.unbind("click");
+                btnAddItem.click(function () {
+                    self._addItemClicked(btnAddItem);
+                });
+            } else {
+                btnAddItem.addClass('control-button-hidden');
+            }
+        }
+
+        // update back button
+        var btnBack = $('#ctrl-back');
+        if (btnBack.length > 0) {
+            var backVisible = (self.startMenu !== self.currentMenuId);
+            if ((backVisible) && (!addItemVisible)) {
+                btnBack.removeClass('control-button-hidden');
+                self.theme.setControlButtonText("ctrl-back", self.theme.getTextAttribute("ORDER", "back", "BACK"));
+                btnBack.unbind("click");
+                btnBack.click(function () {
+                    self._backButtonClicked(btnBack);
+                });
+            } else {
+                btnBack.addClass('control-button-hidden');
+            }
+        }
+
+        // update cancel button
+        var btnCancel = $('#ctrl-cancel');
+        if (btnCancel.length > 0) {
+            self.theme.setControlButtonText("ctrl-cancel", self.theme.getTextAttribute("ORDER", "cancel", "CANCEL"));
+            btnCancel.removeClass('control-button-hidden');
+            btnCancel.unbind("click");
+            btnCancel.click(function () {
+                self._cancelButtonClicked(btnCancel);
+            });
+        }
+
+        // update continue button
+        var btnContinue = $('#ctrl-continue');
+        if (btnContinue.length > 0) {
+            var continueVisible = false;
+
+            if ((template !== null) &&
+                (template.continuemenu !== undefined) &&
+                (template.continuemenu.toString().toLowerCase() === "true")) {
+                var continueMenu = (self.currentMenu.continuemenu.toString().length > 0) ? self.currentMenu.continuemenu : self.startMenu;
+
+                if (_nex.assets.templateManager.isContinueVisible(self.currentMenu)) {
+                    continueVisible = true;
+                }
+            }
+
+            if (continueVisible) {
+                btnContinue.removeClass('control-button-hidden');
+                if ((self.currentMenu.upsell.toLowerCase() === "true") &&
+                    (self.menustack[self.menustack.length - 1].posids.length === 0)) {
+                    self.theme.setControlButtonText("ctrl-continue", self.theme.getTextAttribute("ORDER", "nothanksbutton", "NO, THANKS"));
+                } else {
+                    self.theme.setControlButtonText("ctrl-continue", self.theme.getTextAttribute("ORDER", "continuebutton", "CONTINUE"));
+                }
+                btnContinue.unbind("click");
+                btnContinue.click(function () {
+                    self._continueButtonClicked(btnContinue);
+                });
+
+            } else {
+                btnContinue.addClass('control-button-hidden');
+            }
+        }
+
+        // update order review
+        var btnOrderReview = $('#ctrl-orderreview');
+        if (btnOrderReview.length > 0) {
+            var orderReviewVisible = ((self.startMenu === self.currentMenuId) &&
+                                        (self.order.ITEM !== undefined) &&
+                                        (self.order.ITEM.length > 0));
+            self.theme.setControlButtonText("ctrl-orderreview", self.theme.getTextAttribute("ORDER", "orderreview", "DONE"));
+            if (orderReviewVisible) {
+                btnOrderReview.removeClass('control-button-hidden');
+                btnOrderReview.unbind("click");
+                btnOrderReview.click(function () {
+                    self._reviewButtonClicked(btnOrderReview);
+                });
+            } else {
+                btnOrderReview.addClass('control-button-hidden');
+            }
+        }
+
+        // update done button
+        var btnDone = $('#ctrl-done');
+        if (btnDone.length > 0) {
+
+            var doneVisible = false;
+            if ((template !== null) &&
+                (template.donebutton !== undefined) &&
+                (template.donebutton.toString().toLowerCase() === "true")) {
+                doneVisible = true;
+            }
+
+            if (doneVisible) {
+                btnDone.removeClass('control-button-hidden');
+                self.theme.setControlButtonText("ctrl-done", self.theme.getTextAttribute("ORDER", "done", "DONE"));
+                btnDone.unbind("click");
+                btnDone.click(function () {
+                    self._doneButtonClicked(btnDone);
+                });
+            } else {
+                btnDone.addClass('control-button-hidden');
+            }
+        }
+    };
+
+    // Different in NEXTEP Mobile vs UX
+    // this function should only be called from the goBack function.
+    self.removePreviousMenu = function () {
+        // remove the previous menu and pass the id to loadMenu
+        if (self.menustack.length > 0) {
+
+            // look for menus that have been skipped
+            var menuInfoObj = self.menustack.pop();
+            while (menuInfoObj.skipped) {
+                menuInfoObj = self.menustack.pop();
+            }
+
+            var menuRemoved = self.menus[menuInfoObj.menuId - 1];
+            var template = _nex.assets.templateManager.findTemplate(menuRemoved.template);
+
+            if (template.defaultbuttontype === "SELECTONEMODIFIER") {
+                // remove all mods on the current item which is the last on the order
+                if (self.order.ITEM !== undefined) {
+                    var index = self.order.ITEM.length - 1;
+                    self.removeMods(menuRemoved.id, index);
+                }
+            } else if (template.defaultbuttontype === "SELECTONE") {
+
+                // remove the last item on the order
+                if ((menuInfoObj !== undefined) &&
+                    (menuInfoObj.posids.length > 0)) {
+                    // there should only be one item to remove since it is a SELECTONE
+                    for (var i = 0; i < menuInfoObj.posids.length; i++) {
+                        self.removeFromOrder(menuInfoObj.posids[i]);
+                    }
+                }
+            }
+
+            // load the menu
+            self.loadMenu(menuRemoved.id);
+        } else {
+            // return the start menu
+            if (self.currentMenuId !== self.startMenu) {
+                self.loadMenu(self.startMenu);
+            } else {
+                // navigate away from the ordering process
+                _nex.manager.cancelCurrentPhase();
+            }
+        }
+    };
+
+    // Different in NEXTEP Mobile from UX
+    self.removeMultipleFromOrder = function (posids, callback) {
+        if (posids.length > 0) {
+            _nex.communication.send(new _nex.commands.RemoveFromOrder(posids), function (result) {
+                if (result.responseReceived === "true") {
+
+                    self.order.update(result.ORDER);
+
+                    // remove from the menu stack
+                    for (var i = 0; i < posids.length; i++) {
+                        self.menustack[self.menustack.length - 1].removePosid(posids[i]);
+                    }
+
+                    if (self.orderUpdated !== undefined) {
+                        self.orderUpdated();
+                    }
+
+                    self.updateReceipt();
+                }
+
+                if (callback !== undefined) {
+                    callback(result);
+                }
+            }, "REMOVEFROMORDERRESPONSE");
+        } else {
+
+            if (callback !== undefined) {
+                callback();
+            }
+        }
+
+    };
+
+    // This will be called from a method in common
+    self.cancelOrderPromptCallback = function () {
+        // Implemented differently in UX from NEXTEP Mobile
+        _nex.manager.cancelCurrentPhase();
+    };
+
+
+    self.sendUpdateQuantity = function (callback, index, delta) {
+        // Implemented differently in UX from NEXTEP Mobile
+        _nex.communication.send(new _nex.commands.UpdateQuantity(index, delta), function (result) {
+
+            if (result.responseReceived === "true") {
+                self.order.update(result.ORDER);
+
+                if (self.orderUpdated !== undefined) {
+                    self.orderUpdated();
+                }
+
+                self.updateReceipt();
+            }
+
+            if (callback !== undefined) {
+                callback(result);
+            }
+            self.pending = false;
+        }, "UPDATEQUANTITYRESPONSE");
+    };
+
+    // Implemented differently in NEXTEP Mobile compared to UX
+    self.resetOrder = function (callback) {
+
+        self.pending = true;
+
+        // Reset the order object on the TM if we haven't reached the complete phase yet.
+        if (self.orderManager.currentOrder.ordernumber.length === 0) {
+            _nex.communication.send(new _nex.commands.CancelOrder(), function (result) {
+
+                if (result && result.responseReceived === "true") {
+                    // future use
+                }
+
+                self.updateReceipt();
+
+                // Reset the order object on the client
+                self.orderManager.resetCurrentOrder();
+
+                // Call the callback
+                self.pending = false;
+                if (callback !== undefined) {
+                    if (result) {
+                        callback(result);
+                    } else {
+                        callback();
+                    }
+                }
+
+            }, "CANCELORDERRESPONSE");
+        } else {
+            // Reset the order object on the client
+            self.orderManager.resetCurrentOrder();
+
+            // Call the callback
+            self.pending = false;
+            if (callback !== undefined) {
+                //callback(result);
+                callback();
+            }
+        }
+    };
+    self.findItemRank = function(posid) {
+        //case where item rank contains multiple menus
+        var itemRank = "zzzzzzzzzz";
+        if (Array.isArray(_nex.assets.theme.kiosk.ITEMRANK.MENURANK)) {
+            var merged = [].concat.apply([], _nex.assets.theme.kiosk.ITEMRANK.MENURANK);
+            _nex.assets.theme.kiosk.ITEMRANK.MENURANK.forEach(function(menus) {
+                //case where item rank contains multiple menus and items
+                if (Array.isArray(menus)) {
+                    menus.forEach(function(item) {
+                        if (item.posid === posid) {
+                            itemRank = item.rank;
+                        }
+                    });
+                    //case where menu has only one item
+                } else {
+                    if (menus.ITEM.posid === posid) {
+                        itemRank = menus.ITEM.rank;
+                    }
+                }
+            });
+            //case where single menu with multiple items
+        } else if (Array.isArray(_nex.assets.theme.kiosk.ITEMRANK.MENURANK.ITEM)) {
+            _nex.assets.theme.kiosk.ITEMRANK.MENURANK.ITEM.forEach(function(item) {
+                if (item.posid === posid) {
+                    itemRank = item.rank;
+                }
+            });
+            //case where item rank has single menu with single item
+        } else if (_nex.assets.theme.kiosk.ITEMRANK.MENURANK.ITEM.posid === posid) {
+            itemRank = _nex.assets.theme.kiosk.ITEMRANK.MENURANK.ITEM.rank;
+        }
+
+        return itemRank;
+    };
+}

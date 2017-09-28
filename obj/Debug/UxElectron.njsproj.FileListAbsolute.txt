@@ -1,0 +1,2 @@
+C:\Sandbox\ElectronUX\obj\Debug\UxElectron.njsprojResolveAssemblyReference.cache
+C:\Sandbox\ElectronUX\bin\Microsoft.NodejsTools.WebRole.dll

@@ -1,0 +1,131 @@
+﻿<div id="checkout-service">
+    <form id="checkout-service-form">
+        <div id="clip-receipt">
+            <div id="receipt" class="order-receipt">
+                <div id="txtTotalLabel">Amount Due</div>
+                <div id="txtTotal"><span data-bind="text:amountdue"></span></div>
+            </div>
+        </div>
+        
+        <div>
+            <label class="checkout-label">
+                Account
+            </label>
+        </div>
+        <div class="row">
+
+            <div class="col-md-6">
+                <div class="form-group table-responsive">
+
+                    <table>
+                        <tr>
+                            <td colspan="2">
+                                <label>Name</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="firstName" class="form-control input-sm required" data-bind="value: firstname" placeholder="First Name" autofocus="true">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="lastName" class="form-control input-sm required" data-bind="value: lastname" placeholder="Last Name">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="form-group table-responsive">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>
+                                    Contact
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="email" name="email" class="form-control input-sm" data-bind="value: email" placeholder="e-mail" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" id="phone" name="phone" class="form-control input-sm" data-bind="value: phone" placeholder="Phone" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group table-responsive">
+                    <table>
+                        <tr>
+                            <td colspan="3">
+                                <label>Address</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <input type="text" name="address1" class="form-control input-sm" data-bind="value: address1" placeholder="Street" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <input type="text" name="address2" class="form-control input-sm" data-bind="value: address2" placeholder="Apt, Suite, etc." />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="city" class="form-control input-sm" data-bind="value: city" placeholder="City" />
+                            </td>
+                            <td>
+                                <select id="state" name="state" class="form-control input-sm" data-bind="options: states, optionsText: 'name', optionsValue: 'state', value: selectedState, optionsCaption :  'Select...'" />
+                            </td>
+                            <td>
+                                <input type="text" name="zip" class="form-control input-sm" data-bind="value: zip" placeholder="Zip" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="service-info" class="row">
+            <div class="col-md-6">
+                <div>
+                    <label class="checkout-label">
+                        Pickup Date/Time
+                    </label>
+                </div>
+                <div class="form-group table-responsive">
+                    <table>
+                        <tr>
+                            <td>
+                                <select id="preferredDate" name="preferredDate" class="form-control input-sm required" data-bind="options: fulfillmentDates, value: selectedDate" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select id="preferredTime" name="preferredTime" class="form-control input-sm required" data-bind="options: fulfillmentTimes, optionsText: 'display', optionsValue: 'value',  value: selectedTime" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <label class="checkout-label">
+                        Special Instructions
+                    </label>
+                </div>
+                <div>
+                    <textarea id="specialInstructions" name="specialInstructions" class="form-control input-sm" rows="5" data-bind="value: specialInstructions"></textarea>
+                </div>
+            </div>
+        </div>
+        <div id="paymentError">
+        </div>
+        <br />
+        <br />
+    </form>
+</div>

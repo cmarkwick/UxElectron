@@ -1,0 +1,2 @@
+﻿console.debug('payment.js');
+

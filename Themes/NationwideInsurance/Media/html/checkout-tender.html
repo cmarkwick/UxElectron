@@ -1,0 +1,99 @@
+﻿<div id="checkout-tender">
+    <form id="checkout-tender-form">
+        <div class="row">
+            <div class="col-lg-6">
+                <div>
+                    <label class="checkout-label">
+                        Select Payment
+                    </label>
+                </div>
+                <div class="form-group table-responsive">
+                    <table>
+                        <tr>
+                            <td>
+                                <select id="tenderType" name="tenderType" class="form-control input-sm required" data-bind="options: availableTenders,  optionsText: 'name', optionsValue: 'type', value: selectedTender, optionsCaption :  'Select a Payment Method...'" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><div id="tenderTarget"></div></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="form-group table-responsive">
+                    <table>
+                        <tr>
+                            <td><div id="tenderTarget"></div></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <label class="checkout-label">
+                        Amount Due
+                    </label>
+                </div>
+                <div class="form-group table-responsive">
+                    <table>
+                        <tr>
+                            <td>
+                                <label class="payment-totals-label">
+                                    Subtotal
+                                </label>
+                            </td>
+                            <td>
+                                <span id="salestax" class="payment-totals" data-bind="text: subtotal" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="payment-totals-label">
+                                    Sales Tax
+                                </label>
+                            </td>
+                            <td>
+                                <span id="salestax" class="payment-totals" data-bind="text: salestax" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="payment-totals-label">
+                                    Total
+                                </label>
+                            </td>
+                            <td>
+                                <span id="salestax" class="payment-totals" data-bind="text: amountdue" />
+                            </td>
+                        </tr>
+                        <tbody data-bind="foreach: tenderReceipt, visible:showBalance">
+                            <tr>
+                                <td>
+                                    <label class="payment-totals-label" data-bind="text: name"></label>
+                                </td>
+                                <td>
+                                    <span class="payment-totals" data-bind="text: value" />
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tr data-bind="visible:showBalance">
+                            <td>
+                                <label class="payment-totals-label">
+                                    Balance Due
+                                </label>
+                            </td>
+                            <td>
+                                <span id="salestax" class="payment-totals" data-bind="text: balancedue" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="paymentError">
+</div>
+<br />
+<br />
+</div>

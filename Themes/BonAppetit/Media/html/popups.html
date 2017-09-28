@@ -1,0 +1,666 @@
+﻿<div class="modal fade" id="popup-remove" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="removeLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+                Remove this item?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-lg btn-default popup-button" onclick="_iorderfast.ordering.confirmRemoveItem(true)" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-lg btn-default popup-button" onclick="_iorderfast.ordering.confirmRemoveItem(false)">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-processing" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="processingLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-error" tabindex="-1" role="dialog" aria-labelledby="errorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>-->
+            </div>
+            <div id="messageText" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-message" tabindex="-1" role="dialog" aria-labelledby="messageLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="false">&times;</button>-->
+            </div>
+            <div id="messageText" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-future" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="futureLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button id="yes" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">yes</button>
+                <button id="no" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">no</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-age-verification" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="ageVerification" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="headerText" class="model-header">
+            </div>
+            <div id="messageText" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button id="over21" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">I am 21</button>
+                <button id="under21" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">I am under 21</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-yes-no" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="yesNo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button id="yes" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">yes</button>
+                <button id="no" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">no</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-lookupvideo" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="yesNo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+            </div>
+            <div id="videofeedwrapper"></div>
+            <div class="modal-footer">
+                <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">OK</button>
+                <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-lookup" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="yesNo" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">OK</button>
+                <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-nutrition" tabindex="-1" role="dialog" aria-labelledby="nutrition" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"></span><span class="sr-only">Close</span></button>
+            </div>
+            <div id="messageText" class="modal-body nutrition">
+                <div class="nutrition-info">
+                    <div class="nutrition-amount"><span id="serving"></span></div>
+                </div>
+                <div class="nutrition-info">
+                    <div class="nutrition-amount"><span id="calories"></span></div>
+                </div>
+                <div class="nutrition-divider">&nbsp;</div>
+                <div class="nutrition-info nutrition-grams">
+                    <div class="nutrition-amount"><span id="totalFat"></span></div>
+                </div>
+                <div class="nutrition-info nutrition-grams">
+                    <div class="nutrition-amount"><span id="satFat"></span></div>
+                </div>
+                <div class="nutrition-info nutrition-grams">
+                    <div class="nutrition-amount"><span id="tranFat"></span></div>
+                </div>
+                <div class="nutrition-info nutrition-grams">
+                    <div class="nutrition-amount"><span id="cholesterol"></span></div>
+                </div>
+                <div class="nutrition-info nutrition-grams">
+                    <div class="nutrition-amount"><span id="sodium"></span></div>
+                </div>
+                <div class="nutrition-info nutrition-grams nutrition-carbs">
+                    <div class="nutrition-amount"><span id="totalCarbs"></span></div>
+                </div>
+                <div class="nutrition-info nutrition-grams">
+                    <div class="nutrition-amount"><span id="sugars"></span></div>
+                </div>
+                <div class="nutrition-info nutrition-grams">
+                    <div class="nutrition-amount"><span id="protein"></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-dico" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button id="dinein" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">dine in</button>
+                <button id="takeout" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">take out</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-need-more-time" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button id="yes" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-dismissible-message" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button id="dismissibleok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-keyboard" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body"></div>
+            <div>
+                <div id="keyboardContainer">
+                    <!-- The keyboard is an unordered list of keys. The CSS styles it. -->
+                    <div id="keyboardContainer" class="noselect">
+                        <textarea class="write" rows="6" cols="60" readonly="readonly"></textarea>
+                        <center>
+                            <ul id="keyboard">
+                                <li class="symbol"><span class="off">`</span><span class="on">~</span></li>
+                                <li class="symbol"><span class="off">1</span><span class="on">!</span></li>
+                                <li class="symbol"><span class="off">2</span><span class="on">@</span></li>
+                                <li class="symbol"><span class="off">3</span><span class="on">#</span></li>
+                                <li class="symbol"><span class="off">4</span><span class="on">$</span></li>
+                                <li class="symbol"><span class="off">5</span><span class="on">%</span></li>
+                                <li class="symbol"><span class="off">6</span><span class="on">^</span></li>
+                                <li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
+                                <li class="symbol"><span class="off">8</span><span class="on">*</span></li>
+                                <li class="symbol"><span class="off">9</span><span class="on">(</span></li>
+                                <li class="symbol"><span class="off">0</span><span class="on">)</span></li>
+                                <li class="symbol"><span class="off">-</span><span class="on">_</span></li>
+                                <li class="symbol"><span class="off">=</span><span class="on">+</span></li>
+                                <li class="delete lastitem">delete</li>
+                                <li class="tab">tab</li>
+                                <li class="letter">q</li>
+                                <li class="letter">w</li>
+                                <li class="letter">e</li>
+                                <li class="letter">r</li>
+                                <li class="letter">t</li>
+                                <li class="letter">y</li>
+                                <li class="letter">u</li>
+                                <li class="letter">i</li>
+                                <li class="letter">o</li>
+                                <li class="letter">p</li>
+                                <li class="symbol"><span class="off">[</span><span class="on">{</span></li>
+                                <li class="symbol"><span class="off">]</span><span class="on">}</span></li>
+                                <li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
+                                <li class="capslock">caps lock</li>
+                                <li class="letter">a</li>
+                                <li class="letter">s</li>
+                                <li class="letter">d</li>
+                                <li class="letter">f</li>
+                                <li class="letter">g</li>
+                                <li class="letter">h</li>
+                                <li class="letter">j</li>
+                                <li class="letter">k</li>
+                                <li class="letter">l</li>
+                                <li class="symbol"><span class="off">;</span><span class="on">:</span></li>
+                                <li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
+                                <li class="return lastitem">return</li>
+                                <li class="left-shift">shift</li>
+                                <li class="letter">z</li>
+                                <li class="letter">x</li>
+                                <li class="letter">c</li>
+                                <li class="letter">v</li>
+                                <li class="letter">b</li>
+                                <li class="letter">n</li>
+                                <li class="letter">m</li>
+                                <li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
+                                <li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
+                                <li class="symbol"><span class="off">/</span><span class="on">?</span></li>
+                                <li class="right-shift lastitem">shift</li>
+                                <li class="space lastitem">&nbsp;</li>
+                            </ul>
+                        </center>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="save" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-name" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body" />
+            <div>
+                <div id="keyboardContainer">
+                    <div id="keyboardContainer" class="noselect">
+                        <textarea class="write" rows="6" cols="60" readonly="readonly"></textarea>
+                        <center>
+							<ul id="keyboard">
+								<li class="letter firstitem">-</li>
+								<li class="tab firstitem">tab</li>
+								<li class="letter">Q</li>
+								<li class="letter">W</li>
+								<li class="letter">E</li>
+								<li class="letter">R</li>
+								<li class="letter">T</li>
+								<li class="letter">Y</li>
+								<li class="letter">U</li>
+								<li class="letter">I</li>
+								<li class="letter">O</li>
+								<li class="letter lastitem">P</li>
+								<li class="letter firstitem">A</li>
+								<li class="letter">S</li>
+								<li class="letter">D</li>
+								<li class="letter">F</li>
+								<li class="letter">G</li>
+								<li class="letter">H</li>
+								<li class="letter">J</li>
+								<li class="letter">K</li>
+								<li class="letter">L</li>
+								<li class="symbol lastitem">
+									<span class="off">'</span>
+								</li>
+								<li class="letter firstitem">Z</li>
+								<li class="letter">X</li>
+								<li class="letter">C</li>
+								<li class="letter">V</li>
+								<li class="letter">B</li>
+								<li class="letter">N</li>
+								<li class="letter">M</li>
+								<li class="symbol lastitem">
+									<span class="off">.</span>
+								</li>
+								<li class="space firstitem">&nbsp;</li>
+							</ul>
+						</center>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-pager" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body" />
+            <div>
+                <div id="keyboardContainer">
+                    <div class="numpadContainer noselect">
+                        <div class="numpadOutput">
+                            <input type="hidden" id="maxLength" value="15" />
+                            <input type="text" id="pagernum" class="pagerpadTextOut" readonly="readonly" style="text-align: center; width: 135px;" />
+                        </div>
+                        <div class="numpadWrapper">
+                            <ul class="numpadInput" id="numpadInput">
+                                <li class="symbol">
+                                    <span>1</span>
+                                </li>
+                                <li class="symbol">
+                                    <span>2</span>
+                                </li>
+                                <li class="symbol">
+                                    <span>3</span>
+                                </li>
+
+                                <li class="symbol firstitem">
+                                    <span>4</span>
+                                </li>
+                                <li class="symbol">
+                                    <span>5</span>
+                                </li>
+                                <li class="symbol">
+                                    <span>6</span>
+                                </li>
+
+                                <li class="symbol firstitem">
+                                    <span>7</span>
+                                </li>
+                                <li class="symbol">
+                                    <span>8</span>
+                                </li>
+                                <li class="symbol">
+                                    <span>9</span>
+                                </li>
+
+                                <li class="symbol firstitem" style="visibility: hidden;">&nbsp;</li>
+                                <li class="symbol">
+                                    <span>0</span>
+                                </li>
+                                <li class="symbol delete">
+                                    <span>&lt;</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-email" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body"></div>
+            <div>
+                <div id="keyboardContainer">
+                    <!-- The keyboard is an unordered list of keys. The CSS styles it.
+    Email re-uses the keyboardContainer CSS class. -->
+                    <div id="keyboardContainer" class="noselect">
+                        <textarea class="write" rows="6" cols="60" readonly="readonly" style="color: black !important;"></textarea>
+                        <center>
+                            <ul id="keyboard">
+                                <li class="letter firstitem">-</li>
+                                <li class="letter">@</li>
+                                <li class="letter">.</li>
+                                <li class="letter widekey">.com</li>
+                                <li id="emaildomain1" class="letter widekey">@gmail</li>
+                                <li id="emaildomain2" class="letter widekey">@yahoo</li>
+                                <li id="emaildomain3" class="letter widekey lastitem">@hotmail</li>
+                                <li class="symbol firstitem"><span class="off">`</span><span class="on">~</span></li>
+                                <li class="symbol"><span class="off">1</span><span class="on">!</span></li>
+                                <li class="symbol"><span class="off">2</span><span class="on">@</span></li>
+                                <li class="symbol"><span class="off">3</span><span class="on">#</span></li>
+                                <li class="symbol"><span class="off">4</span><span class="on">$</span></li>
+                                <li class="symbol"><span class="off">5</span><span class="on">%</span></li>
+                                <li class="symbol"><span class="off">6</span><span class="on">^</span></li>
+                                <li class="symbol"><span class="off">7</span><span class="on">&amp;</span></li>
+                                <li class="symbol"><span class="off">8</span><span class="on">*</span></li>
+                                <li class="symbol"><span class="off">9</span><span class="on">(</span></li>
+                                <li class="symbol"><span class="off">0</span><span class="on">)</span></li>
+                                <li class="symbol"><span class="off">-</span><span class="on">_</span></li>
+                                <li class="symbol"><span class="off">=</span><span class="on">+</span></li>
+                                <li class="delete lastitem">delete</li>
+                                <li class="tab">tab</li>
+                                <li class="letter">q</li>
+                                <li class="letter">w</li>
+                                <li class="letter">e</li>
+                                <li class="letter">r</li>
+                                <li class="letter">t</li>
+                                <li class="letter">y</li>
+                                <li class="letter">u</li>
+                                <li class="letter">i</li>
+                                <li class="letter">o</li>
+                                <li class="letter">p</li>
+                                <li class="symbol"><span class="off">[</span><span class="on">{</span></li>
+                                <li class="symbol"><span class="off">]</span><span class="on">}</span></li>
+                                <li class="symbol lastitem"><span class="off">\</span><span class="on">|</span></li>
+                                <li class="capslock">caps lock</li>
+                                <li class="letter">a</li>
+                                <li class="letter">s</li>
+                                <li class="letter">d</li>
+                                <li class="letter">f</li>
+                                <li class="letter">g</li>
+                                <li class="letter">h</li>
+                                <li class="letter">j</li>
+                                <li class="letter">k</li>
+                                <li class="letter">l</li>
+                                <li class="symbol"><span class="off">;</span><span class="on">:</span></li>
+                                <li class="symbol"><span class="off">'</span><span class="on">&quot;</span></li>
+                                <li class="return lastitem">return</li>
+                                <li class="left-shift">shift</li>
+                                <li class="letter">z</li>
+                                <li class="letter">x</li>
+                                <li class="letter">c</li>
+                                <li class="letter">v</li>
+                                <li class="letter">b</li>
+                                <li class="letter">n</li>
+                                <li class="letter">m</li>
+                                <li class="symbol"><span class="off">,</span><span class="on">&lt;</span></li>
+                                <li class="symbol"><span class="off">.</span><span class="on">&gt;</span></li>
+                                <li class="symbol"><span class="off">/</span><span class="on">?</span></li>
+                                <li class="right-shift lastitem">shift</li>
+                                <li class="space lastitem">&nbsp;</li>
+                            </ul>
+                        </center>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-numpad" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+ <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body"></div>
+            <div>
+                <div id="keyboardContainer">
+                    <!-- The pinpad re-uses some CSS classes from teh numpad. -->
+                    <div class="numpadContainer noselect">
+                        <div class="numpadOutput">
+                            <input type="hidden" id="maxLength" value="5" />
+                            <input type="text" id="pin" class="numpadTextOut" readonly="readonly" style="text-align: center; width: 135px;" />
+                        </div>
+                        <div class="numpadWrapper">
+                            <ul class="numpadInput" id="numpadInput">
+                                <li class="symbol"><span>1</span></li>
+                                <li class="symbol"><span>2</span></li>
+                                <li class="symbol"><span>3</span></li>
+                                <li class="symbol firstitem"><span>4</span></li>
+                                <li class="symbol"><span>5</span></li>
+                                <li class="symbol"><span>6</span></li>
+                                <li class="symbol firstitem"><span>7</span></li>
+                                <li class="symbol"><span>8</span></li>
+                                <li class="symbol"><span>9</span></li>
+                                <li class="symbol firstitem" style="visibility: hidden;">&nbsp;</li>
+                                <li class="symbol"><span>0</span></li>
+                                <li class="symbol delete"><span>&lt;</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-pinpad" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body"></div>
+            <div>
+                <div id="keyboardContainer">
+                    <!-- The pinpad re-uses some CSS classes from teh numpad. -->
+                    <div class="numpadContainer noselect">
+                        <div class="numpadOutput">
+                            <input type="hidden" id="maxLength" value="5" />
+                            <input type="password" id="pin" class="numpadTextOut" readonly="readonly" style="text-align: center; width: 135px;" />
+                        </div>
+                        <div class="numpadWrapper">
+                            <ul class="numpadInput" id="numpadInput">
+                                <li class="symbol"><span>1</span></li>
+                                <li class="symbol"><span>2</span></li>
+                                <li class="symbol"><span>3</span></li>
+
+                                <li class="symbol firstitem"><span>4</span></li>
+                                <li class="symbol"><span>5</span></li>
+                                <li class="symbol"><span>6</span></li>
+
+                                <li class="symbol firstitem"><span>7</span></li>
+                                <li class="symbol"><span>8</span></li>
+                                <li class="symbol"><span>9</span></li>
+
+                                <li class="symbol firstitem" style="visibility: hidden;">&nbsp;</li>
+                                <li class="symbol"><span>0</span></li>
+                                <li class="symbol delete"><span>&lt;</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-phonepad" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body"></div>
+            <div>
+                <div id="keyboardContainer">
+                    <div class="phonepadContainer noselect">
+                        <div class="phonepadOutput">
+                            <input type="hidden" name="phonepadOut" class="phonepadTextOut" />
+                            (<input type="text" id="phone1" class="phonepadPhone1" maxlength="3" readonly="readonly" />)
+                            <input type="text" id="phone2" class="phonepadPhone2" maxlength="3" readonly="readonly" />
+                            &ndash;
+                            <input type="text" id="phone3" class="phonepadPhone3" maxlength="4" readonly="readonly" />
+                        </div>
+                        <!-- Running into issues centering with the CSS... Use this to force it to center. -->
+                        <center>
+                        <div class="phonepadWrapper">
+                            <ul class="phonepadInput" id="phonepadInput">
+                                <li class="symbol"><span>1</span></li>
+                                <li class="symbol"><span>2</span></li>
+                                <li class="symbol"><span>3</span></li>
+
+                                <li class="symbol firstitem"><span>4</span></li>
+                                <li class="symbol"><span>5</span></li>
+                                <li class="symbol"><span>6</span></li>
+
+                                <li class="symbol firstitem"><span>7</span></li>
+                                <li class="symbol"><span>8</span></li>
+                                <li class="symbol"><span>9</span></li>
+
+                                <li class="symbol firstitem" style="visibility: hidden;">&nbsp;</li>
+                                <li class="symbol"><span>0</span></li>
+                                <li class="symbol delete"><span>&lt;</span></li>
+                            </ul>
+                        </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- we only need the cancel button now for the phonepad popup-->
+                    <!--<button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>-->
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal large fade" id="popup-upcpad" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="dico" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body"></div>
+            <div>
+                <div id="keyboardContainer" style="height: 550px">
+                    <!-- The pinpad re-uses some CSS classes from teh numpad. -->
+                    <div class="numpadContainer noselect">
+                        <img src="Themes/BonAppetit/media/images/upc.png" width="300px" height="150px" style="display: block; margin-left: auto; margin-right: auto; margin-bottom: 10px">
+                        <div class="numpadOutput">
+                            <input type="hidden" id="maxLength" value="15" />
+                            <input type="text" maxlength="15" data-inputmask="'mask': '9:99999:99999:9', 'placeholder' : '_'" id="upcPin" class="numpadTextOut" readonly="readonly" style="display: block; margin-left: auto; margin-right: auto; width: 93%;" />
+                        </div>
+                        <div class="numpadWrapper">
+                            <ul class="numpadInput" id="numpadInput">
+                                <li class="symbol"><span>1</span></li>
+                                <li class="symbol"><span>2</span></li>
+                                <li class="symbol"><span>3</span></li>
+
+                                <li class="symbol firstitem"><span>4</span></li>
+                                <li class="symbol"><span>5</span></li>
+                                <li class="symbol"><span>6</span></li>
+
+                                <li class="symbol firstitem"><span>7</span></li>
+                                <li class="symbol"><span>8</span></li>
+                                <li class="symbol"><span>9</span></li>
+
+                                <li class="symbol firstitem" style="visibility: hidden;">&nbsp;</li>
+                                <li class="symbol"><span>0</span></li>
+                                <li class="symbol delete"><span>&lt;</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">SAVE</button>
+                    <button id="cancel" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">CANCEL</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-orderOptions" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="onlineOrder" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body" style="padding-bottom: 0 !important;">
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <div class="row">
+                        <button id="newOrder" type="button" class="btn btn-lg btn-block btn-default popup-button" onclick="" data-dismiss="modal">Start a New Order</button>
+                    </div>
+                    <div class="row">
+                        <button id="previousOrder" type="button" class="btn btn-lg btn-block  btn-default popup-button" onclick="" data-dismiss="modal">Lookup a Previous Orders</button>
+                    </div>
+                    <div class="row">
+                        <button id="lookupPin" type="button" class="btn btn-lg btn-block btn-default popup-button" onclick="" data-dismiss="modal">I have an Order Pin</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="popup-offers" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="onlineOrder" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="messageText" class="modal-body" style="padding-bottom: 5px !important;"></div>
+            <div class="row col-md-offset-4 col-md-8">
+                <div id="offer1"></div>
+                <div id="noOffer" class="hidden">No Offers Found</div>
+            </div>
+            <div class="modal-footer">
+                <div class="text-center">
+                    <button id="ok" type="button" class="btn btn-lg btn-default popup-button" onclick="" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

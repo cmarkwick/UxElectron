@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Virtual Pinpad</title>
+	<meta name="generator" content="http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774">
+	<link rel="stylesheet" type="text/css" href="css/numpad1.css" />
+	<link rel="stylesheet" type="text/css" href="css/numpad2.css" />
+    <!-- TODO: MOVE THIS TO THE THEME FOLDER. IT IS HERE FOR NOW TO MAKE IT EASY TO CHECK IN. EACH CUSTOMER THOUGH COULD HAVE A DIFFERENT KEYBOARD. -->
+</head>
+<body>
+	<div class="numpadContainer noselect">
+		<div class="numpadOutput">
+		<input type="hidden" id="maxLength" value="5" />
+			<input type="password" id="pin" class="numpadTextOut" readonly="readonly" style="text-align: center; width: 135px;"  />
+		</div>
+		<div class="numpadWrapper">
+			<ul class="numpadInput" id="numpadInput">
+				<li class="symbol"><span class="on">1</span></li>
+				<li class="symbol"><span class="on">2</span></li>
+				<li class="symbol"><span class="on">3</span></li>
+				
+				<li class="symbol firstitem"><span class="on">4</span></li>
+				<li class="symbol"><span class="on">5</span></li>
+				<li class="symbol"><span class="on">6</span></li>
+				
+				<li class="symbol firstitem"><span class="on">7</span></li>
+				<li class="symbol"><span class="on">8</span></li>
+				<li class="symbol"><span class="on">9</span></li>
+				
+				<li class="symbol firstitem" style="visibility: hidden;">&nbsp;</li>
+				<li class="symbol"><span class="on">0</span></li>
+				<li class="symbol delete"><span class="on">&lt;</span></li>
+			</ul>
+		</div>
+	</div>
+    <script type="text/javascript" src="../js/lib/jquery-1.11.0.min.js"></script>
+	<!-- Note: numpad.js is shared with pinpad. -->
+	<script type="text/javascript" src="js/numpad.js"></script>
+</body>
+</html>

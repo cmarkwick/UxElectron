@@ -1,0 +1,2 @@
+﻿console.debug('receipt.js');
+

@@ -1,0 +1,1 @@
+C:\Sandbox\ElectronUX\UxSelfHost\UxSelfHost\bin\Debug\UxSelfHost.exe.config

@@ -1,0 +1,21 @@
+/* Modified from http://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774 */
+/* Color modifications go in this file. */
+body {
+	/*background: #eee;*/
+     background: rgb(0, 182, 221);
+}
+#keyboardContainer {
+	/*background: #eee;*/
+    background: rgb(0, 182, 221);
+}
+#write {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+}
+#keyboard li {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+}
+#keyboard li:hover {
+	border-color: #e5e5e5;
+}

@@ -1,0 +1,39 @@
+﻿<form id="credit-form">
+    <div class="form-group table-responsive">
+        <table>
+            <tr>
+                <td colspan="2">
+                    <select id="cardType" name="cardType" class="form-control input-sm required" data-bind="options: acceptedCreditCards, optionsText: 'name', optionsValue: 'code', value: selectedCreditCard, optionsCaption :  'Select a Credit Card Type'" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="text" id="cardNumber" name="cardNumber" class="form-control input-sm required" placeholder="Card Number" data-bind="value: creditCardNum" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="cardExpMonth" name="cardExpMonth" class="form-control input-sm required" data-bind="options: months, optionsText: 'month', optionsValue: 'month', value: expMonth, optionsCaption :  'Exp Month'" />
+                </td>
+                <td>
+                    <select id="cardExpYear" name="cardExpYear" class="form-control input-sm required" data-bind="options: years, optionsText: 'year', optionsValue: 'year', value: expYear, optionsCaption :  'Exp Year'" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="text" id="cardId" name="cardId" class="form-control input-sm required" placeholder="3 or 4 Digit Card ID" data-bind="value: cardId" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="text" id="billingAddress" name="billingAddress" class="form-control input-sm required" placeholder="Billing Address" data-bind="value: billingAddress" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="text" id="billingZip" name="billingZip" class="form-control input-sm required" placeholder="Billing Zip" data-bind="value: billingZip" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>

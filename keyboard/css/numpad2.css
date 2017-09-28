@@ -1,0 +1,44 @@
+body {
+	/*background: #eee;*/ /* light gray */
+     background: rgb(0, 182, 221); /* bright blue */
+}
+/* Output */
+div.numpadOutput {
+	color: white;
+}
+.numpadTextOut {
+	/* Take the borders off. */
+	border-style: none;
+	color: black;
+	
+	/* Add a border radius. */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+.numpadPhone1, 
+.numpadPhone2, 
+.numpadPhone3 {
+	/* Take the borders off. */
+	border-style: none;
+	color: white;
+	background-color:rgba(0, 0, 0, 0.0);
+	
+	/* Add a border radius. */
+	-moz-border-radius: 1px;
+	-webkit-border-radius: 1px;
+	
+	/* We still need a border on the bottom. */
+	border-bottom: 1px solid white;
+}
+/* Input */
+ul.numpadInput li {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	
+	/* The rounded corners make the keys look better. */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+ul.numpadInput li:hover {
+	border-color: #e5e5e5;
+}

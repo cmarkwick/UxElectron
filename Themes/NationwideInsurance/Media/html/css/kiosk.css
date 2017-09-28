@@ -1,0 +1,816 @@
+﻿/* ARA/NationwideInsurance - NEXTEP Mobile CSS */
+@font-face {
+  font-family: 'Agenda Bold';
+  src: url('../fonts/ufonts.com_agenda-bold2.ttf') format('truetype');
+  font-weight: bold;
+}
+
+html, body {-webkit-text-size-adjust: 100%;}
+
+body{
+    background-image: url('../images/bg.png');
+}
+
+/* Header */
+.brand-logo {
+    height: 103px;
+    background-image:url("../images/logo.png");
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    border-bottom: 2px solid #afbe2d;
+}
+
+.navbar-text {
+    margin-top: 9px;
+}
+
+/* Set the fixed height of the footer here */
+#footer > .navbar {
+  height: 25px;
+  background-color: #afbe2d;
+  color: #fff;
+  border-bottom: 0;
+  text-align : center;
+  font-size:11pt;
+}
+
+#footer > .navbar a {
+    color : #fff;
+}
+
+.offlinemessage {
+    color: white;
+    font-size: 32pt;
+    width:100%;
+    text-align: center;
+}
+
+/* previous orders*/
+#previousorders-form {
+}
+
+.previous-orders-welcome {
+    font-size: 20pt;
+}
+
+.previous-orders {
+    padding-top: 15px;
+}
+
+.previous-order {
+}
+
+.previous-order a {
+}
+
+.previous-order .thumbnail {
+    background-color: #ff6a00;
+    color: #fff;
+    width : 100%;
+    max-height: none;
+    padding: 0 15px 5px 15px;
+}
+
+
+.previous-order-date {
+    font-size: 18pt;
+}
+
+.previous-order-modtext {
+    font-size: 12pt;
+    padding-left: 30pt;
+}
+
+/* content */
+.iorderfast-content{
+    padding-top: 5px;
+}
+
+/* splash */
+.order-now {
+    margin-top: 10px;
+}
+/* receipt */
+#clip-receipt {    
+    float:right;
+    margin-top : -90px;
+    width:100%;
+    margin-right: 5px;
+ }
+
+.order-receipt {
+    background-color: #00b6dd;
+    color: #fff;
+    font-size: 16pt;
+    text-align: right;
+    margin-top: -3px;
+    margin-left: auto;
+    margin-bottom: 8px;
+    padding-top: 0;
+    padding-right: 3px;
+    max-width:80px;    
+    min-height:0;
+    visibility:hidden;
+}
+
+
+/* header - footer */
+.page-header{
+    background-color: #00b6dd;
+    color:#fff;
+    font-size: 24pt;
+    text-align: left;
+    margin-top: 26px;
+    margin-left: 0;
+    padding: 10px 0 0 25px;
+    height : 60px;
+    border-color: transparent;
+    box-shadow: 0 3px 3px #BBB;
+    width : auto;
+} 
+
+.menu-header-text{
+    display: inline-block;   
+    margin : 0 0 0 0;
+}
+
+/* buttons */
+.row-centered {
+    text-align: center;
+}
+
+.col-centered {
+    display: inline-block;
+    float: none;
+    text-align: left;
+    margin-right: -4px;
+}
+
+.thumbnail {
+    width: 225px;
+    box-shadow: 5px 5px 3px #BBB;
+    border: 0;
+    margin-bottom : 12px;
+    max-height: 165px;
+}
+
+.image-cropped {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size : cover;
+    -webkit-background-size : cover;
+    width: 225px;
+    height: 120px;
+}
+
+.button-price {
+    color: #E87D1D;
+    background-color: white;
+    border: 1px solid #E87D1D;
+    border-radius: 3px 3px 3px 3px;
+    margin: 3px 3px 3px 3px;
+    padding-left: 3px;
+    padding-right: 2px;
+    position: absolute; 
+    bottom: 27px;
+    direction:ltr;
+}
+
+.button-text {
+    color: #fff;
+    background-color: #E87D1D;
+    text-align: center;    
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 100%;
+    height: 47px;
+    font-size: 13pt;
+    position:relative
+}
+.selectmanyof .image-cropped{
+    height: 80px;
+}
+
+.button-down-state .thumbnail{
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 255, 0, 1);
+    -moz-box-shadow:    0px 0px 20px 0px rgba(0, 255, 0, 1);
+    box-shadow:         0 0 20px 0 rgba(0, 255, 0, 1);
+}
+
+.button-many-unselected{
+    visibility:hidden;
+}
+
+.button-many-selected,
+.button-down-state .button-many-unselected {
+    color:#0F0;
+    font-size: 38pt;
+    text-align: center;    
+    visibility: visible;
+}
+
+/* order review */
+#orderreview {
+    border : 1px solid #ff6a00;
+    background-color : white;
+    display: table;
+    font-size : 16pt;
+    margin-bottom: 5pt;
+    padding-left: 5px;
+}
+
+.order-review-quantity {
+    display : table-cell;    
+    min-width : 100px;
+    vertical-align : middle;
+}
+
+.order-review-quantity-button {
+    border: 0 solid;
+    border-radius : 5px;
+    display: inline-block;
+    padding-top : 3px;
+    padding-bottom : 3px;
+    vertical-align : top;
+}
+
+.order-review-quantity-text {
+    display : inline-block;
+    font-size : 16pt;
+    text-align : center;
+    width : 15px;
+    vertical-align : top;
+}
+
+.order-review-text {
+    display : table-cell;
+    width : 100%;
+    padding-left : 5px;
+}
+
+.order-review-modtext {
+    font-size : 14pt;
+}
+
+.order-review-amount {
+    display : table-cell;
+    text-align : right;
+    min-width:75px;
+}
+
+.order-review-quantity-button {
+    background-color : #00b6dd;
+    color: #fff;
+    text-align : center;
+    vertical-align : middle;
+    border-radius : 5px;
+    border: 1px solid #fff;
+    font-size: 11pt;
+    padding-top: 4px;
+    margin-bottom : 2px;
+    width: 34px;
+}
+
+/* ibutton and nutrition */
+
+.ibutton,
+.ibutton:active {
+    background-color: transparent;
+    background-image:url("../Themes/FoDClassic/Media/Images/i-button.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-size: contain;
+    -o-background-size: contain;
+    -moz-background-size : contain;
+    -webkit-background-size : contain;
+    height:30px;
+    width: 30px;
+    margin-top: -37px;
+    margin-left: -8px;
+    position:absolute;
+}
+
+.ibutton-showing {
+    background-image:url("../Themes/FoDClassic/Media/Images/x-button.png");
+}
+
+.ibutton-nutrition-info {
+    width: 100%;
+    text-align: center;
+}
+
+.ibutton-nutrition-button,
+.ibutton-nutrition-button:active,
+.ibutton-nutrition-button:hover,
+.ibutton-nutrition-button:focus {
+    background-color: #581F00;
+    background: -webkit-linear-gradient(left, #633114 , #581F00, #633114); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #633114 , #581F00, #633114); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #633114 , #581F00, #633114); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #633114 , #581F00, #633114); /* Standard syntax */
+    border-bottom: 3px solid #000;
+    border-radius: 0;
+    color:#fff;
+    height: 2.5em;
+    font-size: 12px;
+}
+
+.item-description-text {
+    font-family: Mercury, 'Times New Roman', Times, serif;
+}
+
+#popup-nutrition .modal-dialog {
+    width: 298px;
+    height:405px;
+    position:absolute;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    margin:auto;
+}
+
+#popup-nutrition .modal-content {
+    background-color: transparent;
+    box-shadow : none;
+    border: 0 solid;
+}
+
+#popup-nutrition .modal-header {
+    border: 0 solid;
+}
+
+#popup-nutrition .close {
+    background-image: url("../Themes/FoDClassic/Media/Images/x-button.png");
+    background-size:contain;
+    -o-background-size: contain;
+    -moz-background-size: contain;
+    -webkit-background-size: contain;
+    background-repeat:no-repeat;
+    content:"";
+    height: 28px;
+    width: 28px;
+    right: 0;
+    z-index: 999;
+    position:absolute;
+    color:transparent;
+    opacity:1.0;
+    margin-right: -10px;
+    margin-top:1px;
+}
+
+.nutrition {
+    background-image: url("../Themes//FoDClassic/Media/Images/Nutrition-Bg.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    -o-background-size: contain;
+    -moz-background-size : contain;
+    -webkit-background-size : contain;
+    width:298px;
+    height:405px;    
+    padding-right: 45px;
+    padding-top: 78px;
+    font-family: 'Helvetica LT', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+.nutrition-info {
+    margin-top:4px;
+    height:18px;    
+}
+
+.nutrition-divider {
+    height: 5px;
+}
+
+.nutrition-grams {
+    margin-top: 5px;
+    height: 20px;
+}
+
+.nutrition-carbs {
+    margin-top: 7px;
+}
+
+.nutrition-amount {
+    font-size: 12pt;    
+    text-align: right;
+    padding-right: 3px;
+    width:100%;
+    vertical-align:middle;
+    line-height:1em;
+}
+
+.nutrition-amount #totalCarbs {
+    height: 25px;
+}
+
+/* Control buttons*/
+#controlbuttons,
+#futureorder-controlbuttons,
+#previousorders-controlbuttons,
+#payment-controlbuttons,
+#complete-controlbuttons {
+    border-bottom: 0;
+    background-color: transparent;
+}
+
+.control-button{
+    width : 160px;
+}
+
+.control-button-left {
+    text-align:left;
+}
+
+.control-button-center{
+    text-align:center;
+}
+
+.control-button-right{
+    text-align:right;    
+}
+
+/* popups */
+.modal-content{
+    background-color: #00b6dd;
+    color: #fff;
+    font-size: 24pt;
+    text-align: center;
+}
+
+.modal-footer{
+    text-align:center;
+}
+
+.popup-button{
+    background-color: #ff6a00;
+    border-color: #fff;
+}
+
+/* freedom pay iframe */
+.freedompay-frame {
+    width:100%;
+    height:600px;
+    border:none;
+    overflow:auto;
+}
+
+/* tablet landscape */
+@media (max-width: 1024px) {
+
+    .brand-logo {
+        height: 80px;
+        background-size : contain;
+        -o-background-size: contain;
+        -moz-background-size: contain;
+        -webkit-background-size: contain;
+    }
+
+    .page-header{
+        margin-bottom: 15px;
+        font-size:20pt;
+    }
+
+    .iorderfast-content {
+        padding-top: 103px;
+        padding-left: 0;
+        padding-right: 5px;
+        margin-left: 20px;
+    }
+
+    .thumbnail {
+        width: 205px;
+        box-shadow: 2px 2px 2px #BBB;
+    }
+    
+    .image-cropped {
+        width: 205px;
+        height: 120px;
+    }
+
+    .button-text {
+        width: 205px;
+        height: 40px;        
+        font-size: 12pt;   
+    }
+
+    #clip-receipt {
+        margin-top: -80px;
+    }
+
+    .control-button-left {
+        padding-left: 5px;
+    }
+
+    .control-button-center {
+        padding: 0 0 0 0;
+    }
+
+    .control-button-right {
+        padding-right: 20px;
+    }
+
+    .order-review-quantity-button {
+        font-size: 8pt;
+        text-align: center;
+        padding-bottom: 2px;
+    }
+}
+
+/* tablet portrait*/
+@media (max-width: 992px) {
+
+    .brand-logo {
+        height: 85px;
+    }
+
+    .page-header{
+        font-size:20pt;
+    }
+    
+    .iorderfast-content{
+        margin-left: 7px;
+    }
+
+    #clip-receipt {
+        margin-top: -73px;
+    }
+
+    .control-button-left {
+        padding-left: 10px;
+    }
+
+    .thumbnail {
+        width: 150px;
+        box-shadow: 3px 3px 3px #BBB;
+    }
+    
+    .image-cropped {
+        width: 150px;
+        height: 90px;
+    }
+
+    .button-text {
+        width: 150px;
+        height: 32px;        
+        font-size: 10pt;
+    }
+
+}
+
+@media(max-height: 768px){
+    
+    .image-cropped {
+        height: 80px;
+    }
+    
+}
+
+/* phones */
+@media(max-width: 767px) {
+
+    .jumbotron{
+        margin-top: 15px;
+        margin-left : 5px;
+        margin-right : 5px;
+    }
+
+    .nex-title {
+        font-size: 16pt;
+        font-weight: bold;
+        margin-bottom : 15px;   
+    }
+
+    .nex-sub-title {
+        font-size: 14pt;
+        font-weight: bold;
+    }
+
+    .site-header{
+        display:table;
+        width:100%;
+        margin-top:0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .site-logo{
+        display:table-cell;
+        padding:0;
+        margin-top:0;
+        width:50%;
+        float:left;
+    }
+
+    .site-nav{
+        padding-top:0;
+        padding-bottom:0;
+        margin-top:0;
+        float:right;
+        position:absolute;
+        width:100%;
+    }
+    
+    .site-nav-collapse{
+        position:relative;
+    }
+
+    .brand-logo {
+        padding-top: 0;
+        height:27px;
+        width: 290px;
+        background-size:contain;
+        -o-background-size: contain;
+        -moz-background-size :contain;
+        -webkit-background-size :contain;
+        overflow:hidden;
+        background-image:url("../images/logo-mobile.png");
+    }
+
+    #login-form .form-group{
+        margin-bottom: 5px;
+    }
+
+    #login-form br{
+        display:none;
+        /*line-height: 1px;*/
+    }
+
+    .iorderfast-content {
+        padding-top: 58px;
+        padding-left: 0;
+        padding-right: 5px;
+        margin-left : 0;
+    }
+
+    .thumbnail {
+        direction: rtl;
+        display: table;
+        width: 100%;
+        box-shadow: 0 0 0;
+        margin-bottom: 5px;
+    }
+
+    .image-cropped {
+        display: table-cell;
+        width: 130px;
+        height: 60px;
+        min-width: 130px;
+    }
+
+    .caption {
+        display: table;
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        border-left: 130px solid transparent;
+    }
+
+    .button-text {
+        display: table-cell;
+        font-size: 12pt;
+        vertical-align: middle;
+        direction : ltr;
+    }
+
+    .page-header {      
+        text-align:left;
+        margin-top: -29px;
+        margin-bottom : 10px;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 3px;
+        height: 40px;
+        font-size: 15spt;
+    }
+    
+    .page-header-login{
+        text-align : center;
+    }
+
+    .previous-orders-welcome {
+        font-size: 16pt;
+    }
+
+    .previous-orders-instructions {
+        font-size: 12pt;
+    }
+
+    .previous-orders {
+        padding-top: 0;
+    }
+
+    .previous-order .thumbnail {
+        direction: ltr;
+    }
+
+    .previous-order-date {
+        font-size: 12pt;
+    }
+
+    .previous-order-itemtext,
+    .previous-order-modtext {
+        font-size: 9pt;
+    }
+
+    .menu-header-text{
+        position:absolute;
+        vertical-align: middle;
+        font-size: 10pt;
+        width: 80%;
+    }
+
+    .navbar-toggle {
+        margin-right: -4px;
+        padding: 5px 5px;
+        margin-top: -3px;
+        margin-bottom: 0;
+        float:right;
+    }
+
+    .navbar-header {
+        margin-left: 15px;
+    }
+
+    .navbar-text {
+        font-size: 11pt;
+        margin-left:146px;
+        margin-top:3px;
+        text-wrap:none;
+        max-height:25px;
+        overflow:hidden;
+        white-space: nowrap;
+    }
+
+    .navbar-fixed-bottom {
+        max-height:30px;
+    }   
+    
+    .control-button {
+        width: 80px;
+        font-size : 8pt;      
+    }
+    
+    #payment-form .form-control{
+        height : auto;
+        padding-top: 2px;
+        padding-bottom: 2px;
+    }
+
+    .glyphicon-plus-sign {
+        vertical-align: -1px;
+        margin-right: 5px;
+    }
+
+    .glyphicon-chevron-left {
+        vertical-align: -1px;
+        margin-right: 15px;
+        margin-left: -20px;
+    }
+
+    .glyphicon-remove {
+        vertical-align: -1px;
+        margin-right: 5px;
+    }
+
+    .glyphicon-chevron-right {
+        vertical-align: -1px;
+        margin-left: 1px;
+    }
+
+    #clip-receipt {
+        margin-top: -47px;
+    }
+
+    .order-receipt {
+        font-size: 10pt;
+        padding-right:0;
+    }
+
+    #orderreview {
+        font-size: 10pt;
+    }
+
+    .order-review-modtext {
+        font-size: 8pt;
+    }
+
+    .order-review-quantity-button {
+        font-size: 8pt;
+        padding-top: 2px;
+        padding-bottom: 2px;        
+    }
+
+    /* complete */
+    .order-complete{
+        margin-top: 15px;
+    }
+}

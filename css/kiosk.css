@@ -1,0 +1,229 @@
+﻿html, body {
+    /* Fill the viewport. */
+    width: 100%;
+    height: 100%;
+}
+
+div#wrap {
+    /*width: 600px;
+    height: 400px; */    
+}
+
+div#header {
+}
+
+div#content {
+    display: block;
+
+}
+
+/* Footer at the bottom of the page */
+div#footer {
+    /* Hide for now */
+    display: none;
+
+    /* Center text within the footer, like the copyright */
+    text-align: center;
+}
+
+/* Content that will conditionally show based on what phase goes in the targets */
+div#targets {
+
+}
+div#errorNav {
+
+}
+div#btnStart {
+    
+}
+/* Status messages in the upper-right hand corner.. */
+#statusMessageContainer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: right;
+    color: rgb(192, 192, 192);
+}
+/* Status messages themselves */
+#txtStatus0, #txtStatus1 {
+    
+}
+/* Bootstrap style fixed-width container */
+div.container {
+
+}
+/* Copyright at the bottom. */
+#copyright {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    height: 20px;
+    width: 100%;
+    z-index: 10;
+    line-height: 20px;
+    text-align: right;
+    text-shadow: 1px 1px 1px black; 
+}
+
+/* For the canvas splash */
+#canvas {
+    /* Reset to the upper-left hand corner. The JavaScript will scale it to the screen. */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+/* For the on-screen keyboard */
+div#keyboardContainer {
+	/* Use the iframe container for extra margins/space around the iframe. */
+	height: 500px;
+	width: 100%;
+			
+	/* Take the margins off the keyboard and put them on the container. */
+	margin-top: 0;
+	margin-bottom: 0;
+
+    /*border: 3px solid yellow;
+    background-color: yellow;*/
+}
+
+.test-payment{
+	color:#f00;
+	position:fixed;
+	top:0;
+	left:0;
+	padding: 10px 15px 10px 15px;
+	font-size: 24pt;
+	text-transform: uppercase;
+	background-color:rgba(0,0,0,.5);
+}
+
+
+#appSwitcher.appSwitcherArea {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background-color: transparent;
+    z-index: 10;
+}
+
+/* Splash screen... first time and returning buttons are displayed over the canvas element. */
+div#btnFirst, div#btnReturning {
+    opacity: 0.1; 
+    /*background-color: blue;  */ /* uncomment for troublehsooting */
+    width: 100%; /* 100% won't work if the #wrap div is smaller than the full screen... */
+    height: 100%; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px; 
+    z-index: 2; 
+    text-align: center; 
+    padding-top: 40%; 
+    font-size: 400%; 
+    border-right: 1px solid;
+}
+div#btnFirst {
+    display: none;
+}
+#appSwitcher.appSwitcherArea {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    background-color: transparent;
+    z-index: 10;
+}
+
+div#complete-hitarea {
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color: transparent;
+    z-index: 10;
+    position:fixed;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* 
+    There is a wrap div that wraps all the content on the page. It is nested inside the body element.
+    For the drive-thru, it is good to set the exact size of the wrap, so it can be moved around on drive-thru
+    screen.
+*/
+div#wrap {
+    position: fixed;   
+}
+/* There are phase mover divs to move the wrap div up, down, left, right ...*/
+div.phaseMover {
+    background-color: gray;
+    cursor: pointer;
+    z-index: 100;
+    left: 0px;
+}
+div#moveUp {
+    position: absolute;
+    top: -20px;
+    width: 100%;
+    height: 20px;
+}
+div#moveDown {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    height: 20px;
+}
+div#moveLeft {
+    position: absolute;
+    left: -20px;
+    height: 100%;
+    width: 20px;
+}
+div#moveRight {
+    position: absolute;
+    right: -20px;
+    height: 100%;
+    width: 20px;
+}
+/* 
+    There was an issue for UX where the navbar on the bottom was 'locked' to the bottom of the screen,
+    and this isn't what we really want for a drive thru kiosk... where it should be locked to the bottom
+    of the wrapper div, not the screen. This changed navbar-fixed-bottom to absolute rather than fixed to address this.
+*/
+.navbar-fixed-bottom {
+    position: absolute !important; /* Override the fixed. */
+    bottom: 0px !important;
+    width: 100%;
+}
+/* 
+    There was an issue where a thin orange line was appearing around the 'wrap' div on the screen.
+    Found out it was the user agent adding the line... not one of our style sheets.
+    Adding this removes that outline.
+*/
+:focus {
+    outline: none !important;
+}
+/* 
+    Make sure the need more time popup appears above all the other modal popups,
+    which have a z-index of 1000 to 1050.
+*/
+#popup-need-more-time {
+    z-index: 2000;
+}
+
+/* Add vertical scrolling capability to the order review screen. A lot of this styling should be overriden on a per theme basis. */
+.order-review-buttons {
+    overflow-y: scroll !important;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+
+.gray-out{
+	pointer-events: none;
+	opacity: .5;
+}
+

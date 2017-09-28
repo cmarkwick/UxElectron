@@ -1,0 +1,70 @@
+<TEMPLATES>
+	<SCROLLBUTTONLAYOUTS>
+		<SCROLLBUTTONLAYOUT id="orderreview">
+			<SCROLLPREVIOUS buttonid="scrollprevious" x="190" y="138" height="" width="" />
+			<SCROLLNEXT buttonid="scrollnext" x="190" y="625" height="" width="" />
+		</SCROLLBUTTONLAYOUT>
+	</SCROLLBUTTONLAYOUTS>
+	
+	<BUTTONREGIONS >
+    <BUTTONREGION buttoncount="3" columns="3" rows="1" x="275" y="203" width="750" height="188" buttonscale="1" rowalign="center" colalign="center"/>
+    <BUTTONREGION buttoncount="4" columns="2" rows="2" x="400" y="200" width="500" height="376" buttonscale="1" rowalign="center" colalign="center"/>
+		<BUTTONREGION buttoncount="6" columns="3" rows="2" x="275" y="200" width="750" height="376" buttonscale="1" rowalign="center" colalign="center"/>
+    <BUTTONREGION buttoncount="8" columns="4" rows="2" x="150" y="200" width="1000" height="376" buttonscale="1" rowalign="center" colalign="center"/>
+    <BUTTONREGION buttoncount="9" columns="3" rows="3" x="275" y="115" width="750" height="564" buttonscale="1" rowalign="center" colalign="center"/>
+    <BUTTONREGION buttoncount="10" columns="5" htmlcolumns="4" rows="2" x="25" y="200" width="1250" height="376" buttonscale="1" rowalign="center" colalign="center"/>
+    <BUTTONREGION buttoncount="12" columns="4" rows="3" x="150" y="115" width="1000" height="564" buttonscale="1" rowalign="center" colalign="center"/>
+		<BUTTONREGION buttoncount="15" columns="5" rows="3" x="25" y="115" width="1250" height="564" buttonscale="1" rowalign="center" colalign="center"/>
+	</BUTTONREGIONS>  
+	
+	<TEMPLATE name="Select 1 of N" maxbuttons="15" defaultbuttontype="SELECTONE" imagesize="" continuemenu="false" displayreceipt="true" displayad="true" scrollable="true" backbutton="true" donebutton="false" classname="Select1ofNIntegrated" additembutton="false" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+    <SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+
+  <TEMPLATE name="Select 1 of Mod" maxbuttons="15" defaultbuttontype="SELECTONEMODIFIER" imagesize="" continuemenu="false" displayreceipt="true" displayad="false" additembutton="false" donebutton="false" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTONEMODIFIER" buttonid="selectone" />
+    <SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+
+  <TEMPLATE name="Select 1 of Upsell" maxbuttons="15" defaultbuttontype="SELECTONE" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" additembutton="false" donebutton="false" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTONE" />
+    <SUPPORTEDBUTTONTYPE buttontype="MENUBUTTON" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+
+  <TEMPLATE name="Select Many of N" maxbuttons="15" defaultbuttontype="SELECTMANYMODIFIER" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" classname="SelectManyofNIntegrated" additembutton="false" donebutton="false" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTMANYMODIFIER" buttonid="selectmanyof" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+
+  <TEMPLATE name="Select Many of N Item" maxbuttons="15" defaultbuttontype="SELECTMANYITEM" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" classname="SelectManyofNIntegrated" additembutton="false" donebutton="false" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTMANYITEM" buttonid="selectmanyof" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+
+  <TEMPLATE name="Select Many of LNM" maxbuttons="15" defaultbuttontype="LESSMORE" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" classname="SelectManyofNIntegrated" additembutton="false" donebutton="false" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="LESSMORE" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+  
+  <TEMPLATE name="Select Many of NE Check" maxbuttons="15" defaultbuttontype="SELECTNE" imagesize="" continuemenu="true" displayreceipt="true" displayad="false" scrollable="true" classname="SelectManyofNIntegrated" incquantity="true" additembutton="false" donebutton="false" pricedby="menu" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTNE" buttonid="selectmanyof" />
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTOTHER" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+
+  <TEMPLATE name="Select Many of NE"  maxbuttons="15" defaultbuttontype="SELECTNE" imagesize='' continuemenu='true' displayreceipt='true' displayad='false' scrollable='true' classname="SelectManyofNIntegrated" incquantity='true' pricedby="menu" buttonrendermode="Dynamic" descriptiontype="i-button" showfilteraction="true" showdicoaction="true">
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTNE" buttonid="lessmore" />
+    <SUPPORTEDBUTTONTYPE buttontype="SELECTOTHER" />
+    <SUPPORTEDBUTTONTYPE buttontype="BLANK" />
+  </TEMPLATE>
+  
+	<TEMPLATE name="Order Review" maxbuttons="5" defaultbuttontype="CHECKOUT" imagesize="" continuemenu="false" displayreceipt="true" displayad="false" backbutton="false" additembutton="true" donebutton="true" classname="OrderReview" scrollbuttonlayout="orderreview" buttonrendermode="Dynamic">
+		<SUPPORTEDBUTTONTYPE buttontype="CHECKOUT" />
+		<BUTTONREGION columns="1" rows="5" x="132" y="195" width="1030" height="416" buttonscale="1" />
+	</TEMPLATE>
+	
+</TEMPLATES>

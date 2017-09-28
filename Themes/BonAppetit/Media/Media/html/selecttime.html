@@ -1,0 +1,23 @@
+﻿<div id="selecttime">
+    <div class="page-header">
+        <span>SELECT A PICK UP TIME</span>
+    </div>
+    <form id="selecttime-form">
+        <div>
+            <div class="form-group table-responsive">
+                <table>
+                    <tr>
+                        <td>
+                            <select id="preferredDate" name="preferredDate" class="form-control input-sm" data-bind="options: fulfillmentDates, value: selectedDate, optionsCaption :  'Select Pick Up Date...'" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select id="preferredTime" name="preferredTime" class="form-control input-sm" data-bind="options: fulfillmentTimes, optionsText: 'display', optionsValue: 'value', value: fulfillmentTime, optionsCaption :  'Select Pick Up Time...'" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+</div>

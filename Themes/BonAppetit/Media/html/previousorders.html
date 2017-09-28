@@ -1,0 +1,25 @@
+﻿<div id="previousorders-form">
+    <div class="page-header">
+        <span>PREVIOUS ORDERS</span>
+    </div>
+    <div id="welcome">
+        <span class="previous-orders-welcome">Welcome back <span class="previous-orders-customer-name" data-bind="text: firstname" />!</span><br />
+        <span class="previous-orders-instructions">To place an order based upon a previous order, click on an order now.  Or, press "NEW ORDER" to start a new order.</span>
+    </div>
+    <div id="orders" class="previous-orders">
+        <!-- the previous order element will be cloned for each previous order for the customer -->
+        <div id="previousorder" class="previous-order" style="visibility:hidden">
+            <a id="loadOrder" href="javascript:void(0)">
+                <div class="thumbnail" >
+                    <div id="orderdate" class="previous-order-date" ></div>
+                    <div id="items">
+                        <div id="previousOrderItem" class="previous-order-item" style="visibility:hidden">
+                            <div id="receipttext" class="previous-order-itemtext"></div>
+                            <div id="modtext" class="previous-order-modtext"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

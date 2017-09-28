@@ -1,0 +1,25 @@
+/* Container */
+#keyboardContainer {
+	background: transparent;
+}
+/* Output */
+.write {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+    color: #000;
+	
+	/* The rounded corners make the output look better. */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+/* Button */
+#keyboard li {
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	color: black;
+
+	/* The rounded corners make the keys look better. */
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+

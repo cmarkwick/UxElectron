@@ -1,0 +1,62 @@
+<!-- Note: This file has to be copied to the server folder. -->
+<THEME>
+  <POPUPS id="popups" mediafolder="html" filename="popups.html" />
+  <PHASE id="splash" >
+    <CLIP id="splashbg" mediafolder="html" filename="splash.html" script="{IORDERFAST_URI}js/page/splash.js"  />
+    <CLIP id="" mediafolder="html" filename="splash.html" script="{IORDERFAST_URI}js/page/splash2.js" />
+  </PHASE>
+  <PHASE id="futureorder">
+    <CLIP id="selecttime" mediafolder="html" filename="selecttime.html" script="{IORDERFAST_URI}js/page/selecttime.js" />
+    <CLIP id="controlbuttons" mediafolder="html" filename="controlbuttons-futureorder.html" />
+  </PHASE>
+  <PHASE id="previousorders" >
+    <CLIP id="orders" mediafolder="html" filename="previousorders.html" />
+    <CLIP id="controlbuttons" mediafolder="html" filename="controlbuttons-previousorders.html" />
+  </PHASE>
+  <PHASE id="ordering">
+    <CLIP id="header" mediafolder="html" filename="header-menu.html" />
+    <CLIP id="receipt" mediafolder="html" filename="receipt.html" />
+    <CLIP id="nutritionSummary" mediafolder="html" filename="nutritionSummary.html" />
+    <CLIP id="template" mediafolder="html" filename="template.html" />
+    <CLIP id="controlbuttons" mediafolder="html" filename="controlbuttons.html" />
+    <CLIP id="templatebuttons" mediafolder="templates" filename="templatebuttons.html" />
+    <CLIP id="itemdescription" mediafolder="html" filename="itemdescription.html" />
+  </PHASE>
+  <PHASE id="checkout-service">
+    <CLIP id="header" mediafolder="html" filename="header-checkout-service.html" />
+    <CLIP id="payment-info" mediafolder="html" filename="checkout-service.html" script="{IORDERFAST_URI}js/page/serviceform.js" />
+    <CLIP id="controlbuttons" mediafolder="html" filename="controlbuttons-checkout-service.html" />
+  </PHASE>
+  <PHASE id="checkout-tender">
+    <CLIP id="header" mediafolder="html" filename="header-checkout-tender.html" />
+    <CLIP id="payment-info" mediafolder="html" filename="checkout-tender.html" script="{IORDERFAST_URI}js/page/tenderform.js" >
+      <PAYMENTCLIP id="counter" mediafolder="html" filename="tender/counter.html" />
+      <PAYMENTCLIP id="credit" mediafolder="html" filename="tender/credit.html" script="{IORDERFAST_URI}js/page/creditform.js"  />
+      <PAYMENTCLIP id="loyalty" mediafolder="html" filename="tender/loyalty.html" script="{IORDERFAST_URI}js/page/loyaltyform.js"  />
+    </CLIP>
+    <CLIP id="controlbuttons" mediafolder="html" filename="controlbuttons-checkout-tender.html" />
+  </PHASE>
+  <PHASE id="payment">
+    <CLIP id="header" mediafolder="html" filename="tablet_header-checkout-tender.html" />
+    <CLIP id="payment-info" mediafolder="html" filename="tender/kioskdefault.html" >
+      <PAYMENTCLIP id="select" mediafolder="html" filename="tender/kioskselect.html" />
+      <PAYMENTCLIP id="counter" mediafolder="html" filename="tender/kioskcounter.html" />
+      <PAYMENTCLIP id="credit" mediafolder="html" filename="tender/kioskcredit.html"  />
+      <PAYMENTCLIP id="loyalty" mediafolder="html" filename="tender/kioskloyalty.html"  />
+      <PAYMENTCLIP id="employee" mediafolder="html" filename="tender/kioskemployee.html" />
+    </CLIP>
+    <CLIP id="controlbuttons" mediafolder="html" filename="controlbuttons-payment.html" />
+  </PHASE>
+  <PHASE id="greenreceipt">
+    <CLIP id="header" mediafolder="html" filename="header-green-receipt.html" />
+    <CLIP id="choices" mediafolder="html" filename="receipt-choice.html" script="{IORDERFAST_URI}js/page/greenreceipt.js" />
+  </PHASE>
+  <PHASE id="postordering">
+    <CLIP id="header" mediafolder="html" filename="header-postordering.html" />
+    <CLIP id="postordering" mediafolder="html" filename="postordering.html" />
+  </PHASE>
+  <PHASE id="complete">
+    <CLIP id="complete" mediafolder="html" filename="complete.html" />
+    <CLIP id="controlbuttons" mediafolder="html" filename="controlbuttons-complete.html" script="{IORDERFAST_URI}js/page/completeform.js" />
+  </PHASE>
+</THEME>

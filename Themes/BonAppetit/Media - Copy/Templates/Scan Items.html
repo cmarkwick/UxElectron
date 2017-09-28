@@ -1,0 +1,43 @@
+<div id="scanItems">
+    <div id="btext"></div>
+    <div id="bimage"></div>
+    <div id="textDesc"></div>
+    <div id="price0text"></div>
+    <div id="txtScanNext"></div>
+    <div class="row">
+        <div class="col-md-4" style="position: absolute; top: 20%; z-index: 10">
+            <div class="modal-content" style="height: 400px;">
+                <div class="row col-md-12" style="position: absolute; top: 10%;">
+                    <div class="col-md-8 col-md-offset-1 h4" id="scan-current-item-description" data-bind="text: currentItemDescription"></div>
+                    <div class="col-md-2 h4" id="scan-current-item-price" data-bind="text: _nex.scanItems.formatCurrency(currentItemPrice())"></div>
+                </div>
+                <div class="row" style="position: absolute; text-align: center; top: 50%; vertical-align: middle;">
+                    <div class="col-md-12 col-md-offset-3 h4" id="scan-current-item-prompt" data-bind="text: currentItemPrompt"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-10">
+            <div class="row">
+                <div class="row col-md-offset-1">
+                    <button class="btn btn-default" id="ctrl-scanoverride" type="button">Manually Enter Item Code</button>
+                </div>
+            </div>
+            <div class="well well-lg" style="background-color: lightyellow !important; height: 800px; opacity: 0.7;">
+                <div class="row">
+                    <div class="col-md-offset-9 h6" style="color: black">TOTAL</div>
+                    <div class="col-md-offset-9 h4" style="color: black" id="scan-item-total" data-bind="text:  _nex.scanItems.formatCurrency(itemTotal())"></div>
+                    <div class="col-md-offset-9 description-text" style="color: black">PLUS TAX</div>
+                </div>
+                <div class="row">
+                    <div style="color: black" data-bind="foreach: items" id="scan-items">
+                        <div class="col-md-6" id="scan-item-description" data-bind="text: itemDescription">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-2" id="scan-item-price" data-bind="text: _nex.scanItems.formatCurrency(itemPrice)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
